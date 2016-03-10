@@ -1,14 +1,15 @@
+package FSE.CW4;
+
 public class WorkshopReview {
 	private int RScore;
 	private String RReview;
 	private static String[] ROutputs = new String[]{"*","**","***","****","*****"};
-
-
+	
 	public WorkshopReview() {
 		RScore = 0;
 		RReview = "No Review";
 	}
-
+	
 	public WorkshopReview(int rScore, String rReview) {
 		RScore = rScore;
 		RReview = rReview;

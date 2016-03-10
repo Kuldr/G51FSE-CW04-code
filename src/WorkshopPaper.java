@@ -1,4 +1,4 @@
-import org.junit.Test;
+package FSE.CW4;
 
 public class WorkshopPaper {
 	private String PTitle;
@@ -6,19 +6,19 @@ public class WorkshopPaper {
 	private static String[] ROutputs = new String[]{"*","**","***","****","*****"};
 
 	public WorkshopPaper() {
-		PTitle = "New Paper";
-		PReviews = new WorkshopReview[3];
-		PReviews[0] = null;
-		PReviews[1] = null;
-		PReviews[2] = null;
+		this("New Paper");
+		// Changed constructor to call the other for less repeated code : Benjamin Charlton, Oscar Mason, Jonathan Dilks
 	}
+
 	public WorkshopPaper(String pTitle) {
 		PTitle = pTitle;
 		PReviews = new WorkshopReview[3];
-		PReviews[0] = null;
-		PReviews[1] = null;
-		PReviews[2] = null;
+		for(int i = 0; i < PReviews.length; i++)
+		{
+			PReviews[i] = null;
+		} // Changed to for loop for easy scalability : Benjamin Charlton
 	}
+
 
 	public String getPTitle() {
 		return PTitle;
@@ -27,46 +27,56 @@ public class WorkshopPaper {
 	public void setPTitle(String pTitle) {
 		PTitle = pTitle;
 	}
-	
+
 	public void addReview(WorkshopReview nReview) {
-		if (PReviews[0] == null)
-			PReviews[0] = nReview;
-		else {
-			if (PReviews[1] == null)
-				PReviews[1] = nReview;
-			else {
-				if (PReviews[2] == null)
-					PReviews[2] = nReview;
+		for(int i = 0; i < PReviews.length; i++)
+		{
+			if (PReviews[i] == null) {
+				PReviews[i] = nReview;
 			}
-		}
+		} // Changed if statements to for loop for easy scalability : Benjamin Charlton
 	}
-	
+
 	public float getAverageScore(){
 		float AvgScore = 0;
 		int numReviews = 0;
-		if (PReviews[0] != null){
-			AvgScore += PReviews[0].getRScore();
-			numReviews++;
-		}
-		if (PReviews[1] != null){
-			AvgScore += PReviews[1].getRScore();
-			numReviews++;
-		}
-		if (PReviews[2] != null){
-			AvgScore += PReviews[1].getRScore();
-			numReviews++;
-		}
+
+		for(int i = 0; i < PReviews.length; i++)
+		{
+			if (PReviews[i] != null) {
+				AvgScore += PReviews[i].getRScore();
+				numReviews++;
+			}
+		} // Changed if statements to for loop for easy scalability : Benjamin Charlton
+
+		// TODO Add exception for numReviews == 0
+
 		AvgScore = AvgScore/numReviews;
 		return AvgScore;
 	}
-	
+
 	public String toString(){
 		String myoutput = "";
-		myoutput = "Average Score = " + ROutputs[Math.round(getAverageScore())] + "\n\n";
-		myoutput += "Review 1:\n" + PReviews[0].toString() + "\n";
-		myoutput += "Review 2:\n" + PReviews[1].toString() + "\n";
-		myoutput += "Review 3:\n" + PReviews[2].toString() + "\n";
-		return myoutput;
+		int roundScore = Math.round(getAverageScore()); //Changed Math.round(getAverageScore()) to stored to allow for error checking : Benjamin Charlton
+		if( roundScore == 0 )
+		{
+			return "No reviews submitted yet.";
+		} // Added error checking for no reviews : Benjamin Charlton
+		else
+		{
+			myoutput = "Average Score = " + ROutputs[roundScore-1] + "\n\n"; //Changed ROutputs[roundScore] to ROutputs[roundScore-1] : Benjamin Charlton
+			for(int i = 0; i < PReviews.length; i++)
+			{
+				if (PReviews[i] != null) {
+					myoutput += "Review " + i +":\n" + PReviews[i].toString() + "\n";
+				}
+			} // Changed to for loop to allow for scalabilty and also added condtion to check if review has data : Benjamin Charlton
+			return myoutput;
+		}
 	}
-	
+
+	public WorkshopReview[] getPReviews(){
+		return PReviews;
+	}
+
 }
