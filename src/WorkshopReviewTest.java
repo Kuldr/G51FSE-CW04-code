@@ -62,7 +62,8 @@ public class WorkshopReviewTest {
         assertNotEquals(INVALID_HIGH_SCORE, workshopReview.getRScore());
     }
 
-    @Test void  testWorkshopPaperConstructor() throws Exception{
+    @Test
+    public void  testWorkshopReviewConstructor() throws Exception{
         WorkshopReview workshopReview;
         /*
             ID: 50
