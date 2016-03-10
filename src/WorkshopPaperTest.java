@@ -1,4 +1,3 @@
-package FSE.CW4;
 
 import org.junit.Test;
 

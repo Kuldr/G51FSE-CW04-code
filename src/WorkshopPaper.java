@@ -1,4 +1,4 @@
-package FSE.CW4;
+
 
 public class WorkshopPaper {
 	private String PTitle;
