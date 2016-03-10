@@ -58,6 +58,7 @@ public class WorkshopReviewTest {
             workshopReview.setRScore(INVALID_HIGH_SCORE);
             fail("Invalid high score 'ran'");
         }catch (Exception e){}
+
         assertNotEquals(INVALID_HIGH_SCORE, workshopReview.getRScore());
     }
 
@@ -74,6 +75,7 @@ public class WorkshopReviewTest {
         workshopReview = new WorkshopReview(VALID_MID_SCORE, "txt");
         assertEquals(VALID_MID_SCORE, workshopReview.getRScore());
         assertEquals("txt", workshopReview.getRReview());
+        //Added this test comment real quick
     }
 
     @Test
