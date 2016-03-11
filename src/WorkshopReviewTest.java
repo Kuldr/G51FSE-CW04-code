@@ -1,3 +1,4 @@
+import Exceptions.WorkshopReviewInvalidScore;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -30,25 +31,48 @@ public class WorkshopReviewTest {
 
 
     @Test
-    //TODO: Break out tests
-    public void testGetRScore() throws Exception {
+    public void testGetRScore57() throws Exception {
+        WorkshopReview workshopReview;
         /* ID: 57
            Authored: Tim Cargan, Jon Dilks
          */
-        WorkshopReview workshopReview = new WorkshopReview();
+        workshopReview = new WorkshopReview();
         assertEquals(VALID_MIN_SCORE, workshopReview.getRScore());
+    }
 
+    @Test
+    public void testGetRScore58() throws Exception {
+        WorkshopReview workshopReview;
         /*
             ID: 58
             Authored: Tim Cargan, Jon Dilks
          */
+        workshopReview = new WorkshopReview();
         workshopReview.setRScore(VALID_MID_SCORE);
         assertEquals(VALID_MID_SCORE, workshopReview.getRScore());
     }
 
+    @Test(expected = WorkshopReviewInvalidScore.class)
+    public void testSetRScore59() throws Exception {
+        WorkshopReview workshopReview;
+         /*
+            ID: 59
+            Authored: Tim Cargan, Jon Dilks
+         */
+        workshopReview = new WorkshopReview();
+
+        //Lower Bound
+        workshopReview.setRScore(INVALID_LOW_SCORE);
+        assertNotEquals(INVALID_LOW_SCORE, workshopReview.getRScore());
+
+        //Upper Bound
+        workshopReview.setRScore(INVALID_HIGH_SCORE);
+        assertNotEquals(INVALID_HIGH_SCORE, workshopReview.getRScore());
+
+    }
+
     @Test
-    //TODO: Break out tests
-    public void testSetRScore() throws Exception {
+    public void testSetRScore60() throws Exception {
         /*
             ID: 60
             Authored: Tim Cargan, Jon Dilks
@@ -61,24 +85,6 @@ public class WorkshopReviewTest {
 
         workshopReview.setRScore(VALID_MIN_SCORE);
         assertEquals(VALID_MIN_SCORE, workshopReview.getRScore());
-
-        /*
-            ID: 59
-            Authored: Tim Cargan, Jon Dilks
-         */
-        // TODO: Write Exception for Invalid Score
-        try {
-            workshopReview.setRScore(INVALID_LOW_SCORE);
-            fail("Invalid low score 'ran'");
-        }catch (Exception e){}
-        assertNotEquals(INVALID_LOW_SCORE, workshopReview.getRScore());
-
-        try {
-            workshopReview.setRScore(INVALID_HIGH_SCORE);
-            fail("Invalid high score 'ran'");
-        }catch (Exception e){}
-
-        assertNotEquals(INVALID_HIGH_SCORE, workshopReview.getRScore());
     }
 
     @Test
@@ -119,25 +125,19 @@ public class WorkshopReviewTest {
             ID: 53
             Authored: Tim Cargan, Jon Dilks
          */
-        // TODO:  Add lorem lipsum
-        workshopReview = new WorkshopReview(VALID_MID_SCORE, "txt");
+        workshopReview = new WorkshopReview(VALID_MID_SCORE, TEXT);
         assertEquals(VALID_MID_SCORE, workshopReview.getRScore());
-        assertEquals("txt", workshopReview.getRReview());
+        assertEquals(TEXT, workshopReview.getRReview());
     }
 
-    @Test
+    @Test(expected = WorkshopReviewInvalidScore.class)
     public void  testWorkshopReviewConstructor54() throws Exception {
         WorkshopReview workshopReview;
         /*
             ID: 54
             Authored: Tim Cargan, Jon Dilks
          */
-        // TODO: Change to custom exception expected
-        try {
-            workshopReview = new WorkshopReview(INVALID_LOW_SCORE, TEXT);
-            fail("Low score accepted");
-        }catch (Exception e){}
-
+        workshopReview = new WorkshopReview(INVALID_LOW_SCORE, TEXT);
     }
 
     @Test
@@ -148,6 +148,7 @@ public class WorkshopReviewTest {
             ID: 55
             Authored: Tim Cargan, Jon Dilks
          */
+
         workshopReview = new WorkshopReview(VALID_MID_SCORE, TEXT);
 
 
@@ -253,7 +254,7 @@ public class WorkshopReviewTest {
         // TODO: Check what the output should be
         workshopReview = new WorkshopReview();
         String toString = workshopReview.toString();
-        assertEquals("Score:1\nReview: ", toString);
+        assertEquals("Score = * \n Review: \n", toString);
     }
     
     @Test
@@ -265,7 +266,7 @@ public class WorkshopReviewTest {
          */
         // TODO: Check what the output should be
         workshopReview = new WorkshopReview(VALID_MID_SCORE, TEXT);
-        String expected = "Score:" + VALID_MID_SCORE + "\nReview: " + TEXT;
+        String expected = "Score: ***\n Review: " + TEXT + "\n";
         assertEquals(expected, workshopReview.toString());
     }
 
