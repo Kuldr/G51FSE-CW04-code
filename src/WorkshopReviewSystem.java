@@ -8,13 +8,10 @@ import java.util.*;
 public class WorkshopReviewSystem {
 
 	private static ArrayList<WorkshopPaper> AllPapers;
-	
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
-		//////////////
-		//example test data
-		//////////////
+
 		AllPapers = new ArrayList<WorkshopPaper>();
 		
 		WorkshopPaper p1 = new WorkshopPaper("Paper 1 is great");
@@ -56,7 +53,6 @@ public class WorkshopReviewSystem {
 				}
 			} catch (Exception e) {
 				System.out.println("Something went wrong: " + e.toString() + "\n");
-				
 			}
 			System.out.println("What do you want to do?\n O = Overview, P = Add Paper, R = Add Review, [num] = Detail of that paper, X = exit");
 		}

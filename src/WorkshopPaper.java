@@ -1,5 +1,4 @@
 import Exceptions.WorkshopPaperEmptyTitleException;
-import Exceptions.WorkshopPaperExcessReviewException;
 import Exceptions.WorkshopPaperNoReviewsYetException;
 
 public class WorkshopPaper {
