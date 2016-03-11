@@ -54,11 +54,12 @@ public class WorkshopPaper {
 				numReviews++;
 			}
 		} // Changed if statements to for loop for easy scalability : Benjamin Charlton
+
 		if(numReviews == 0){
 			throw new WorkshopPaperNoReviewsYetException();
 		}else{
 			AvgScore = AvgScore/numReviews;
-		}
+		} //Changed to catch scenarios when number of reviews equals 0 : Oscar Mason
 		return AvgScore;
 	}
 
