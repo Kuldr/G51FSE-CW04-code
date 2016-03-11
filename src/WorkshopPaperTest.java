@@ -9,7 +9,7 @@ import static org.junit.Assert.*;
 public class WorkshopPaperTest {
 
     @Test
-    public void testWorkshopPaperConstructor() throws Exception {
+    public void testWorkshopPaperConstructor() {
 
         /*  Test ID: 1
             Authored: Oscar Mason, Jon Dilks, Benjamin Charlton, Tim Cargan
@@ -67,18 +67,8 @@ public class WorkshopPaperTest {
     }
 
     @Test(expected = WorkshopPaperEmptyTitleException.class)
-    public void setPTitleTest7a() throws WorkshopPaperEmptyTitleException {
-        /*  Test ID: 7a
-            Authored: Oscar Mason, Benjamin Charlton
-         */
-        final String exampleTitle = "Example Paper";
-        WorkshopPaper workshopPaper = new WorkshopPaper(exampleTitle);
-        workshopPaper.setPTitle("");
-    }
-
-    @Test(expected = WorkshopPaperEmptyTitleException.class)
     public void setPTitleTest7b() throws WorkshopPaperEmptyTitleException {
-        /*  Test ID: 7b
+        /*  Test ID: 7
             Authored: Oscar Mason, Benjamin Charlton
          */
         final String exampleTitle = "Example Paper";
@@ -112,7 +102,7 @@ public class WorkshopPaperTest {
          */
         WorkshopPaper workshopPaper = new WorkshopPaper();
         for (int i = 0; i<workshopPaper.getPReviews().length+1; i++){
-            workshopPaper.addReview(new WorkshopReview(i, "Test"));
+            workshopPaper.addReview(new WorkshopReview(3, "Test"));
         }
     }
 
