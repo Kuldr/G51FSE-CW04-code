@@ -73,7 +73,7 @@ public class WorkshopReviewTest {
         workshopReview = new WorkshopReview();
         assertNotNull(workshopReview);
 
-
+        
         workshopReview = new WorkshopReview(VALID_MID_SCORE, "txt");
         assertEquals(VALID_MID_SCORE, workshopReview.getRScore());
         assertEquals("txt", workshopReview.getRReview());
