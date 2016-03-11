@@ -55,8 +55,8 @@ public class WorkshopPaperTest {
         assertEquals("Title Goes Here", workshopPaper.getPTitle());
     }
 
-    @Test
-    public void setPTitleTest6() {
+    @Test(expected = WorkshopPaperEmptyTitleException.class)
+    public void setPTitleTest6() throws WorkshopPaperEmptyTitleException{
         /*  Test ID: 6
             Authored: Oscar Mason, Benjamin Charlton
          */
@@ -66,28 +66,27 @@ public class WorkshopPaperTest {
 
     }
 
-    @Test
-    public void setPTitleTest7() {
-        /*  Test ID: 7
+    @Test(expected = WorkshopPaperEmptyTitleException.class)
+    public void setPTitleTest7a() throws WorkshopPaperEmptyTitleException {
+        /*  Test ID: 7a
             Authored: Oscar Mason, Benjamin Charlton
          */
-
         final String exampleTitle = "Example Paper";
-
         WorkshopPaper workshopPaper = new WorkshopPaper(exampleTitle);
+        workshopPaper.setPTitle("");
+    }
 
-        boolean thrown = false;
-
-        try {
-            workshopPaper.setPTitle("");
-        }
-        catch (Exception e)
-        {
-            thrown = true;
-        }
-        assertTrue(thrown);
+    @Test(expected = WorkshopPaperEmptyTitleException.class)
+    public void setPTitleTest7b() throws WorkshopPaperEmptyTitleException {
+        /*  Test ID: 7b
+            Authored: Oscar Mason, Benjamin Charlton
+         */
+        final String exampleTitle = "Example Paper";
+        WorkshopPaper workshopPaper = new WorkshopPaper(exampleTitle);
+        workshopPaper.setPTitle("");
         assertEquals(workshopPaper.getPTitle(), exampleTitle);
     }
+
 
     @Test
     public void addReview9() {
@@ -131,7 +130,7 @@ public class WorkshopPaperTest {
     }
 
     @Test(expected = WorkshopPaperNoReviewsYetException.class)
-    public void getAverageScoreTest16(){
+    public void getAverageScoreTest16()throws WorkshopPaperNoReviewsYetException{
         /*  Test ID: 16
             Authored: Oscar Mason, Jonathan Dilks
          */
@@ -179,8 +178,8 @@ public class WorkshopPaperTest {
         }
 
         String expectedOutput = "Average Score = **\n\n"
-                + "Review 1:\nScore = **\n Review: Test\n\n"
-                + "Review 2:\nScore = **\n Review: Test\n\n";
+                + "Review 1:\nScore = **\n Review: Any text\n\n"
+                + "Review 2:\nScore = **\n Review: Any text\n\n";
 
         assertEquals(workshopPaper.toString(), expectedOutput);
     }

@@ -1,5 +1,7 @@
 
 
+import Exceptions.WorkshopPaperNoReviewsYetException;
+
 import java.util.*;
 
 
@@ -86,7 +88,11 @@ public class WorkshopReviewSystem {
 	private static void PrintPaperOverview(){
 		for (int x = 0; x < AllPapers.size(); x++) {
 			WorkshopPaper wp = AllPapers.get(x);
-			System.out.println((x+1) + ") " + wp.getPTitle()+ " - " + wp.getAverageScore());
+			try{
+				System.out.println((x+1) + ") " + wp.getPTitle()+ " - " + wp.getAverageScore());
+			}catch (WorkshopPaperNoReviewsYetException e){
+
+			}
 		}
 	}
 	
