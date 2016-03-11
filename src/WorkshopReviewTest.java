@@ -26,6 +26,9 @@ public class WorkshopReviewTest {
             "2014年2月27日（木）はサーバメンテンナンスのため下記の時間帯にサービスが停止する時" +
             "間帯があります。ご不便をお掛け致しますが、ご理解賜りますようお願い申し上げます";
 
+    //TODO: Update the excel sheet with the tests
+
+
     @Test
     //TODO: Break out tests
     public void testGetRScore() throws Exception {
@@ -63,6 +66,7 @@ public class WorkshopReviewTest {
             ID: 59
             Authored: Tim Cargan, Jon Dilks
          */
+        // TODO: Write Exception for Invalid Score
         try {
             workshopReview.setRScore(INVALID_LOW_SCORE);
             fail("Invalid low score 'ran'");
@@ -78,7 +82,7 @@ public class WorkshopReviewTest {
     }
 
     @Test
-    public void  testWorkshopReviewConstructor50() throws Exception {
+    public void  testWorkshopReviewConstructor50() {
         WorkshopReview workshopReview;
         /*
             ID: 50
@@ -115,6 +119,7 @@ public class WorkshopReviewTest {
             ID: 53
             Authored: Tim Cargan, Jon Dilks
          */
+        // TODO:  Add lorem lipsum
         workshopReview = new WorkshopReview(VALID_MID_SCORE, "txt");
         assertEquals(VALID_MID_SCORE, workshopReview.getRScore());
         assertEquals("txt", workshopReview.getRReview());
@@ -127,6 +132,7 @@ public class WorkshopReviewTest {
             ID: 54
             Authored: Tim Cargan, Jon Dilks
          */
+        // TODO: Change to custom exception expected
         try {
             workshopReview = new WorkshopReview(INVALID_LOW_SCORE, TEXT);
             fail("Low score accepted");
@@ -148,7 +154,7 @@ public class WorkshopReviewTest {
     }
 
     @Test
-    //TODO: John can do this one
+    //TODO: Jon can do this one
     public void  testWorkshopReviewConstructor56() throws Exception {
         WorkshopReview workshopReview;
         /*
@@ -244,6 +250,7 @@ public class WorkshopReviewTest {
             ID: 68
             Authored: Tim Cargan, Jon Dilks
          */
+        // TODO: Check what the output should be
         workshopReview = new WorkshopReview();
         String toString = workshopReview.toString();
         assertEquals("Score:1\nReview: ", toString);
@@ -256,6 +263,7 @@ public class WorkshopReviewTest {
             ID: 69
             Authored: Tim Cargan, Jon Dilks
          */
+        // TODO: Check what the output should be
         workshopReview = new WorkshopReview(VALID_MID_SCORE, TEXT);
         String expected = "Score:" + VALID_MID_SCORE + "\nReview: " + TEXT;
         assertEquals(expected, workshopReview.toString());
