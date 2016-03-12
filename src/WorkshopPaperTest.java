@@ -79,7 +79,7 @@ public class WorkshopPaperTest {
 
 
     @Test
-    public void addReview9() throws WorkshopPaperEmptyTitleException {
+    public void addReview9() throws WorkshopPaperEmptyTitleException, WorkshopPaperExcessReviewException {
         /*  Test ID: 9
             Authored: Oscar Mason, Benjamin Charlton, Jonathan Dilks
          */
@@ -96,7 +96,7 @@ public class WorkshopPaperTest {
     }
 
     @Test(expected = WorkshopPaperExcessReviewException.class)
-    public void addReview10() throws WorkshopPaperEmptyTitleException {
+    public void addReview10() throws WorkshopPaperEmptyTitleException, WorkshopPaperExcessReviewException {
         /*  Test ID: 10
             Authored: Oscar Mason, Jonathan Dilks
          */
@@ -129,7 +129,7 @@ public class WorkshopPaperTest {
     }
 
     @Test
-    public void toStringTest13() throws WorkshopPaperEmptyTitleException {
+    public void toStringTest13() throws WorkshopPaperEmptyTitleException, WorkshopPaperExcessReviewException {
         /*  Test ID: 13
             Authored: Oscar Mason, Benjamin Charlton
          */
@@ -158,7 +158,7 @@ public class WorkshopPaperTest {
     }
 
     @Test
-    public void toStringTest15() throws WorkshopPaperEmptyTitleException {
+    public void toStringTest15() throws WorkshopPaperEmptyTitleException, WorkshopPaperExcessReviewException {
         /*  Test ID: 15
             Authored: Oscar Mason, Jonathan Dilks
          */

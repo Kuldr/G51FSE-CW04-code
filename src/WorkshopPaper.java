@@ -1,4 +1,5 @@
 import Exceptions.WorkshopPaperEmptyTitleException;
+import Exceptions.WorkshopPaperExcessReviewException;
 import Exceptions.WorkshopPaperNoReviewsYetException;
 
 public class WorkshopPaper {
@@ -38,13 +39,18 @@ public class WorkshopPaper {
 		}
 	}
 
-	public void addReview(WorkshopReview nReview) {
+	public void addReview(WorkshopReview nReview) throws WorkshopPaperExcessReviewException {
+		boolean added = false;
 		for(int i = 0; i < PReviews.length; i++)
 		{
-			if (PReviews[i] == null) {
+			if (!added && PReviews[i] == null) {
 				PReviews[i] = nReview;
+				added = true;
 			}
 		} // Changed if statements to for loop for easy scalability : Benjamin Charlton
+		if (!added) {
+			throw new WorkshopPaperExcessReviewException();
+		}
 	}
 
 	public float getAverageScore() throws WorkshopPaperNoReviewsYetException {

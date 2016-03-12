@@ -1,7 +1,6 @@
 
 
-import Exceptions.WorkshopPaperEmptyTitleException;
-import Exceptions.WorkshopPaperNoReviewsYetException;
+import Exceptions.*;
 
 import java.util.*;
 
@@ -10,7 +9,7 @@ public class WorkshopReviewSystem {
 
 	private static ArrayList<WorkshopPaper> AllPapers;
 
-	public static void main(String[] args) throws WorkshopPaperEmptyTitleException /*TODO : Handle the exceptions properly*/ {
+	public static void main(String[] args) throws WorkshopPaperEmptyTitleException, WorkshopPaperExcessReviewException /*TODO : Handle the exceptions properly*/ {
 		// TODO Auto-generated method stub
 
 		AllPapers = new ArrayList<WorkshopPaper>();
@@ -69,7 +68,7 @@ public class WorkshopReviewSystem {
 		System.out.println("[Paper added]");
 	}
 	
-	private static void AddReview(Scanner in) {
+	private static void AddReview(Scanner in) throws WorkshopPaperExcessReviewException {
 		System.out.println("Which paper do you want to add a review to?");
 		int x = in.nextInt();
 		System.out.println("What score do you give it?");
