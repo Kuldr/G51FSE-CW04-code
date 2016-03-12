@@ -9,7 +9,7 @@ import static org.junit.Assert.*;
 public class WorkshopPaperTest {
 
     @Test
-    public void testWorkshopPaperConstructor() {
+    public void testWorkshopPaperConstructor() throws WorkshopPaperEmptyTitleException {
 
         /*  Test ID: 1
             Authored: Oscar Mason, Jon Dilks, Benjamin Charlton, Tim Cargan
@@ -24,7 +24,7 @@ public class WorkshopPaperTest {
     }
 
     @Test
-    public void WorkshopPaperMainConstructorTest2() {
+    public void WorkshopPaperMainConstructorTest2() throws WorkshopPaperEmptyTitleException {
 
         /*  Test ID: 2
             Authored: Oscar Mason, Benjamin Charlton
@@ -39,7 +39,7 @@ public class WorkshopPaperTest {
     }
 
     @Test(expected = WorkshopPaperEmptyTitleException.class)
-    public void WorkshopPaperMainConstructorTest3() {
+    public void WorkshopPaperMainConstructorTest3() throws WorkshopPaperEmptyTitleException {
         /*  Test ID: 3
             Authored: Oscar Mason, Benjamin Charlton, Jonathan Dilks
          */
@@ -47,7 +47,7 @@ public class WorkshopPaperTest {
     }
 
     @Test
-    public void testGetPTitle() {
+    public void testGetPTitle() throws WorkshopPaperEmptyTitleException {
         /*  Test ID: 5
             Authored: Oscar Mason, Benjamin Charlton
          */
@@ -79,7 +79,7 @@ public class WorkshopPaperTest {
 
 
     @Test
-    public void addReview9() {
+    public void addReview9() throws WorkshopPaperEmptyTitleException {
         /*  Test ID: 9
             Authored: Oscar Mason, Benjamin Charlton, Jonathan Dilks
          */
@@ -96,7 +96,7 @@ public class WorkshopPaperTest {
     }
 
     @Test(expected = WorkshopPaperExcessReviewException.class)
-    public void addReview10(){
+    public void addReview10() throws WorkshopPaperEmptyTitleException {
         /*  Test ID: 10
             Authored: Oscar Mason, Jonathan Dilks
          */
@@ -120,7 +120,7 @@ public class WorkshopPaperTest {
     }
 
     @Test(expected = WorkshopPaperNoReviewsYetException.class)
-    public void getAverageScoreTest16()throws WorkshopPaperNoReviewsYetException{
+    public void getAverageScoreTest16() throws WorkshopPaperNoReviewsYetException, WorkshopPaperEmptyTitleException {
         /*  Test ID: 16
             Authored: Oscar Mason, Jonathan Dilks
          */
@@ -129,7 +129,7 @@ public class WorkshopPaperTest {
     }
 
     @Test
-    public void toStringTest13(){
+    public void toStringTest13() throws WorkshopPaperEmptyTitleException {
         /*  Test ID: 13
             Authored: Oscar Mason, Benjamin Charlton
          */
@@ -147,7 +147,7 @@ public class WorkshopPaperTest {
     }
 
     @Test
-    public void toStringTest14() {
+    public void toStringTest14() throws WorkshopPaperEmptyTitleException {
         /*  Test ID: 14
             Authored: Oscar Mason, Jonathan Dilks
          */
@@ -158,7 +158,7 @@ public class WorkshopPaperTest {
     }
 
     @Test
-    public void toStringTest15() {
+    public void toStringTest15() throws WorkshopPaperEmptyTitleException {
         /*  Test ID: 15
             Authored: Oscar Mason, Jonathan Dilks
          */

@@ -1,5 +1,6 @@
 
 
+import Exceptions.WorkshopPaperEmptyTitleException;
 import Exceptions.WorkshopPaperNoReviewsYetException;
 
 import java.util.*;
@@ -9,7 +10,7 @@ public class WorkshopReviewSystem {
 
 	private static ArrayList<WorkshopPaper> AllPapers;
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws WorkshopPaperEmptyTitleException /*TODO : Handle the exceptions properly*/ {
 		// TODO Auto-generated method stub
 
 		AllPapers = new ArrayList<WorkshopPaper>();
@@ -60,7 +61,7 @@ public class WorkshopReviewSystem {
 		
 	}
 	
-	private static void AddPaper(Scanner in) {
+	private static void AddPaper(Scanner in) throws WorkshopPaperEmptyTitleException {
 		System.out.println("What is the title of the paper?");
 		in.nextLine(); // to remove read-in bug
 		String title = in.nextLine();

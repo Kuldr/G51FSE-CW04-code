@@ -6,13 +6,18 @@ public class WorkshopPaper {
 	private WorkshopReview[] PReviews;
 	private static String[] ROutputs = new String[]{"*","**","***","****","*****"};
 
-	public WorkshopPaper() {
+	public WorkshopPaper() throws WorkshopPaperEmptyTitleException {
 		this("New Paper");
 		// Changed constructor to call the other for less repeated code : Benjamin Charlton, Oscar Mason, Jonathan Dilks
 	}
 
-	public WorkshopPaper(String pTitle) {
-		PTitle = pTitle;
+	public WorkshopPaper(String pTitle) throws WorkshopPaperEmptyTitleException {
+		if(pTitle == ""){
+			throw new WorkshopPaperEmptyTitleException();
+		} else {
+			PTitle = pTitle;
+		} //Changed to catch scenarios when the title is empty : Oscar Mason, Benjamin Charlton
+
 		PReviews = new WorkshopReview[3];
 		for(int i = 0; i < PReviews.length; i++)
 		{
@@ -58,7 +63,7 @@ public class WorkshopPaper {
 			throw new WorkshopPaperNoReviewsYetException();
 		}else{
 			AvgScore = AvgScore/numReviews;
-		} //Changed to catch scenarios when number of reviews equals 0 : Oscar Mason
+		} //Changed to catch scenarios when number of reviews equals 0 : Oscar Mason, Benjamin Charlton
 		return AvgScore;
 	}
 

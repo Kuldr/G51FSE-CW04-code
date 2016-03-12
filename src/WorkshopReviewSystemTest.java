@@ -1,3 +1,4 @@
+import Exceptions.WorkshopPaperEmptyTitleException;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -25,7 +26,7 @@ public class WorkshopReviewSystemTest {
     }
 
     @Test
-    public void workshopPaperSystemMain100a(){
+    public void workshopPaperSystemMain100a() throws WorkshopPaperEmptyTitleException {
         /*  Test ID: 100a
             Authored: Oscar Mason, Tim Cargan
          */
@@ -63,7 +64,7 @@ public class WorkshopReviewSystemTest {
 
 
     @Test
-    public void workshopPaperSystemMain100c(){
+    public void workshopPaperSystemMain100c() throws WorkshopPaperEmptyTitleException {
         /*  Test ID: 100c
             Authored: Oscar Mason, Tim Cargan
          */
