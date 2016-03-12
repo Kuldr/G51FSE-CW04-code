@@ -55,7 +55,7 @@ public class WorkshopPaperTest {
         assertEquals("Title Goes Here", workshopPaper.getPTitle());
     }
 
-    @Test(expected = WorkshopPaperEmptyTitleException.class)
+    @Test
     public void setPTitleTest6() throws WorkshopPaperEmptyTitleException{
         /*  Test ID: 6
             Authored: Oscar Mason, Benjamin Charlton
