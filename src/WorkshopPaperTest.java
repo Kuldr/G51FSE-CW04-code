@@ -67,7 +67,7 @@ public class WorkshopPaperTest {
     }
 
     @Test(expected = WorkshopPaperEmptyTitleException.class)
-    public void setPTitleTest7b() throws WorkshopPaperEmptyTitleException {
+    public void setPTitleTest7() throws WorkshopPaperEmptyTitleException {
         /*  Test ID: 7
             Authored: Oscar Mason, Benjamin Charlton
          */
@@ -154,7 +154,7 @@ public class WorkshopPaperTest {
         final String noReviewString = "No reviews submitted yet.";
 
         WorkshopPaper workshopPaper3 = new WorkshopPaper();
-        assertEquals(workshopPaper3.toString(), noReviewString);
+        assertEquals(noReviewString, workshopPaper3.toString());
     }
 
     @Test
@@ -171,7 +171,7 @@ public class WorkshopPaperTest {
                 + "Review 1:\nScore = **\n Review: Any text\n\n"
                 + "Review 2:\nScore = **\n Review: Any text\n\n";
 
-        assertEquals(workshopPaper.toString(), expectedOutput);
+        assertEquals(expectedOutput, workshopPaper.toString());
     }
 
 }
