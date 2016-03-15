@@ -87,7 +87,7 @@ public class WorkshopPaper {
 		for(int i = 0; i < PReviews.length; i++)
 		{
 			if (PReviews[i] != null) {
-				myoutput += "Review " + i+1 +":\n" + PReviews[i].toString() + "\n";
+				myoutput += "Review " + (i+1) +":\n" + PReviews[i].toString() + "\n";
 			}
 		} // Changed to for loop to allow for scalabilty and also added condtion to check if review has data : Benjamin Charlton
 		return myoutput;
