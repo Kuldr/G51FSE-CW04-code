@@ -13,7 +13,7 @@ public class WorkshopPaper {
 	}
 
 	public WorkshopPaper(String pTitle) throws WorkshopPaperEmptyTitleException {
-		if(pTitle == ""){
+		if(pTitle.equals("")){
 			throw new WorkshopPaperEmptyTitleException();
 		} else {
 			PTitle = pTitle;
