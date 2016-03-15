@@ -1,3 +1,4 @@
+import Exceptions.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -11,7 +12,7 @@ import static org.junit.Assert.*;
 
 public class WorkshopReviewSystemTest {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-    private final String optionText = "What do you want to do?\n O = Overview, P = Add Paper, R = Add Review, [num] = Detail of that paper, X = exit"+System.lineSeparator();
+    private final String optionText = "What do you want to do?\n O = Overview, P = Add Paper, R = Add Review, [num] = Detail of that paper, X = exit" + System.lineSeparator();
     //private final ByteArrayInputStream in = new ByteArrayInputStream();
     @Before
     public void setUpStreams(){
@@ -25,7 +26,7 @@ public class WorkshopReviewSystemTest {
     }
 
     @Test
-    public void workshopPaperSystemMain100a(){
+    public void workshopPaperSystemMain100a() throws WorkshopPaperEmptyTitleException, WorkshopPaperExcessReviewException {
         /*  Test ID: 100a
             Authored: Oscar Mason, Tim Cargan
          */
@@ -37,8 +38,9 @@ public class WorkshopReviewSystemTest {
         workshopReviewSystem.main(new String[]{""});
         float averageScore = 4/3;
         //TODO Hardcoded average score
-        String output = optionText + "1) Paper 1 is great - 4.0" + System.lineSeparator() +
-                "2) Paper 2 is my best work - 2.0" + System.lineSeparator() +
+        String output = optionText +
+                "1) Paper 1 is great - 4.0" + System.lineSeparator() +
+                "2) Paper 2 is my best work - " + averageScore + System.lineSeparator() +
                 optionText;
         assertEquals(output, outContent.toString());
     }
@@ -54,12 +56,14 @@ public class WorkshopReviewSystemTest {
         System.setIn(in);
 
         workshopReviewSystem.main(new String[]{""});
-        String output = optionText + "What is the title of the paper?"+System.lineSeparator()+"[Paper added]"+System.lineSeparator()+ optionText;
+        String output = optionText + "What is the title of the paper?" + System.lineSeparator() +
+                "[Paper added]" + System.lineSeparator() +
+                optionText;
         assertEquals(output, outContent.toString() );
     }
 
     @Test
-    public void workshopPaperSystemMain100c(){
+    public void workshopPaperSystemMain100c() throws WorkshopPaperEmptyTitleException, WorkshopPaperExcessReviewException {
         /*  Test ID: 100c
             Authored: Oscar Mason, Tim Cargan
          */

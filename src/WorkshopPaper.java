@@ -1,4 +1,5 @@
 import Exceptions.WorkshopPaperEmptyTitleException;
+import Exceptions.WorkshopPaperExcessReviewException;
 import Exceptions.WorkshopPaperNoReviewsYetException;
 
 public class WorkshopPaper {
@@ -6,13 +7,18 @@ public class WorkshopPaper {
 	private WorkshopReview[] PReviews;
 	private static String[] ROutputs = new String[]{"*","**","***","****","*****"};
 
-	public WorkshopPaper() {
+	public WorkshopPaper() throws WorkshopPaperEmptyTitleException {
 		this("New Paper");
 		// Changed constructor to call the other for less repeated code : Benjamin Charlton, Oscar Mason, Jonathan Dilks
 	}
 
-	public WorkshopPaper(String pTitle) {
-		PTitle = pTitle;
+	public WorkshopPaper(String pTitle) throws WorkshopPaperEmptyTitleException {
+		if(pTitle == ""){
+			throw new WorkshopPaperEmptyTitleException();
+		} else {
+			PTitle = pTitle;
+		} //Changed to catch scenarios when the title is empty : Oscar Mason, Benjamin Charlton
+
 		PReviews = new WorkshopReview[3];
 		for(int i = 0; i < PReviews.length; i++)
 		{
@@ -33,13 +39,18 @@ public class WorkshopPaper {
 		}
 	}
 
-	public void addReview(WorkshopReview nReview) {
+	public void addReview(WorkshopReview nReview) throws WorkshopPaperExcessReviewException {
+		boolean added = false;
 		for(int i = 0; i < PReviews.length; i++)
 		{
-			if (PReviews[i] == null) {
+			if (!added && PReviews[i] == null) {
 				PReviews[i] = nReview;
+				added = true;
 			}
 		} // Changed if statements to for loop for easy scalability : Benjamin Charlton
+		if (!added) {
+			throw new WorkshopPaperExcessReviewException();
+		}
 	}
 
 	public float getAverageScore() throws WorkshopPaperNoReviewsYetException {
@@ -58,7 +69,7 @@ public class WorkshopPaper {
 			throw new WorkshopPaperNoReviewsYetException();
 		}else{
 			AvgScore = AvgScore/numReviews;
-		} //Changed to catch scenarios when number of reviews equals 0 : Oscar Mason
+		} //Changed to catch scenarios when number of reviews equals 0 : Oscar Mason, Benjamin Charlton
 		return AvgScore;
 	}
 
@@ -76,7 +87,7 @@ public class WorkshopPaper {
 		for(int i = 0; i < PReviews.length; i++)
 		{
 			if (PReviews[i] != null) {
-				myoutput += "Review " + i +":\n" + PReviews[i].toString() + "\n";
+				myoutput += "Review " + i+1 +":\n" + PReviews[i].toString() + "\n";
 			}
 		} // Changed to for loop to allow for scalabilty and also added condtion to check if review has data : Benjamin Charlton
 		return myoutput;
