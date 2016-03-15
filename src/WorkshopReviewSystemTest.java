@@ -40,6 +40,8 @@ public class WorkshopReviewSystemTest {
             Authored: Oscar Mason, Tim Cargan
          */
         WorkshopReviewSystem workshopReviewSystem = new WorkshopReviewSystem();
+        workshopReviewSystem.add_test_data();
+
         String input = "O";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
@@ -61,6 +63,7 @@ public class WorkshopReviewSystemTest {
             Authored: Oscar Mason, Tim Cargan
          */
         WorkshopReviewSystem workshopReviewSystem = new WorkshopReviewSystem();
+        workshopReviewSystem.add_test_data();
         String input = "P\nGood paper\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
@@ -78,6 +81,7 @@ public class WorkshopReviewSystemTest {
             Authored: Oscar Mason, Tim Cargan
          */
         WorkshopReviewSystem workshopReviewSystem = new WorkshopReviewSystem();
+        workshopReviewSystem.add_test_data();
         String input = "R\n2\n5\nGood paper\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
@@ -97,6 +101,7 @@ public class WorkshopReviewSystemTest {
             Authored: Oscar Mason, Tim Cargan
          */
         WorkshopReviewSystem workshopReviewSystem = new WorkshopReviewSystem();
+        workshopReviewSystem.add_test_data();
         String input = "X\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
@@ -112,6 +117,7 @@ public class WorkshopReviewSystemTest {
             Authored: Oscar Mason, Tim Cargan
          */
         WorkshopReviewSystem workshopReviewSystem = new WorkshopReviewSystem();
+        workshopReviewSystem.add_test_data();
         String input = "Unknown\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
@@ -128,6 +134,7 @@ public class WorkshopReviewSystemTest {
             Authored: Oscar Mason, Tim Cargan
          */
         WorkshopReviewSystem workshopReviewSystem = new WorkshopReviewSystem();
+        workshopReviewSystem.add_test_data();
         String input = "Unknown\nX\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
@@ -145,6 +152,7 @@ public class WorkshopReviewSystemTest {
             Authored: Oscar Mason, Tim Cargan
          */
         WorkshopReviewSystem workshopReviewSystem = new WorkshopReviewSystem();
+        workshopReviewSystem.add_test_data();
         String input = "o";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
@@ -166,6 +174,7 @@ public class WorkshopReviewSystemTest {
             Authored: Oscar Mason, Tim Cargan
          */
         WorkshopReviewSystem workshopReviewSystem = new WorkshopReviewSystem();
+        workshopReviewSystem.add_test_data();
         String input = "p\nGood paper\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
@@ -183,6 +192,7 @@ public class WorkshopReviewSystemTest {
             Authored: Oscar Mason, Tim Cargan
          */
         WorkshopReviewSystem workshopReviewSystem = new WorkshopReviewSystem();
+        workshopReviewSystem.add_test_data();
         String input = "r\n2\n5\nGood paper\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
@@ -202,6 +212,7 @@ public class WorkshopReviewSystemTest {
             Authored: Oscar Mason, Tim Cargan
          */
         WorkshopReviewSystem workshopReviewSystem = new WorkshopReviewSystem();
+        workshopReviewSystem.add_test_data();
         String input = "x\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
@@ -217,6 +228,7 @@ public class WorkshopReviewSystemTest {
             Authored: Oscar Mason, Tim Cargan
          */
         WorkshopReviewSystem workshopReviewSystem = new WorkshopReviewSystem();
+        workshopReviewSystem.add_test_data();
         String input = "P\n\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
@@ -233,6 +245,7 @@ public class WorkshopReviewSystemTest {
             Authored: Oscar Mason, Tim Cargan
          */
         WorkshopReviewSystem workshopReviewSystem = new WorkshopReviewSystem();
+        workshopReviewSystem.add_test_data();
         String input = "P\n " + TEXT_NONASCII + "\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
@@ -249,9 +262,12 @@ public class WorkshopReviewSystemTest {
     public void workshopPaperSystemMain111() throws WorkshopPaperEmptyTitleException, WorkshopPaperExcessReviewException{
         /*  Test ID: 111
             Authored: Oscar Mason, Tim Cargan
+            TODO: Unfinished Test
+            Note: I don't think this test is needed as we make sure that the obj can hande titles
          */
         WorkshopReviewSystem workshopReviewSystem = new WorkshopReviewSystem();
-        String input = "P\nLook I code stuff\n\nO\n";
+        workshopReviewSystem.add_test_data();
+        String input = "P\nLook I code stuff\nO\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
@@ -261,6 +277,7 @@ public class WorkshopReviewSystemTest {
                 optionText;
         assertEquals(output, outContent.toString());
     }
+
 
 
 }
