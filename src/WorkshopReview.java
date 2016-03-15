@@ -6,11 +6,15 @@ public class WorkshopReview {
 	private static String[] ROutputs = new String[]{"*","**","***","****","*****"};
 	
 	public WorkshopReview() {
-		RScore = 0;
+		RScore = 1; // Changed default score to 1 : Benjamin Charlton
 		RReview = "No Review";
 	}
 	
 	public WorkshopReview(int rScore, String rReview) {
+		if( rScore < 1 || rScore > 5)
+		{
+			rScore = 1;
+		} // Added check for out of bounds Score : Benjamin Charlton
 		RScore = rScore;
 		RReview = rReview;
 	}

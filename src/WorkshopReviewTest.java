@@ -12,8 +12,9 @@ public class WorkshopReviewTest {
     private static final int VALID_MIN_SCORE = 1;
     private static final int VALID_MID_SCORE = 3;
     private static final int VALID_MAX_SCORE = 5;
+    private static final int INVALID_NEG_SCORE = -1;
     private static final int INVALID_LOW_SCORE = 0;
-    private static final int INVALID_HIGH_SCORE = 5;
+    private static final int INVALID_HIGH_SCORE = 6;
     private static final String TEXT = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium " +
             "doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto" +
             " beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut" +
@@ -60,6 +61,10 @@ public class WorkshopReviewTest {
             Authored: Tim Cargan, Jon Dilks
          */
         workshopReview = new WorkshopReview();
+
+        //Negative Bound
+        workshopReview.setRScore(INVALID_LOW_SCORE);
+        assertNotEquals(INVALID_NEG_SCORE, workshopReview.getRScore());
 
         //Lower Bound
         workshopReview.setRScore(INVALID_LOW_SCORE);
