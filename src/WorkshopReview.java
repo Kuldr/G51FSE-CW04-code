@@ -37,7 +37,7 @@ public class WorkshopReview {
 
 	@Override
 	public String toString() {
-		return "Score = " + ROutputs[RScore] + "\n Review: " + RReview + "\n";
+		return "Score = " + ROutputs[RScore-1] + "\n Review: " + RReview + "\n"; // Changed ROutputs to index the array correctly : Benjamin Charlton
 	}
 	
 	
