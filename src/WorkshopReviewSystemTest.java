@@ -23,6 +23,9 @@ public class WorkshopReviewSystemTest {
             " nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?" +
             " Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur," +
             " vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?";
+
+    //TODO: No errors should be expected or needed to be thrown by test methods
+
     @Before
     public void setUpStreams(){
         System.setOut(new PrintStream(outContent));
@@ -48,7 +51,6 @@ public class WorkshopReviewSystemTest {
         WorkshopReviewSystem.main(new String[]{""});
         float averageScore_1 = (float)9/3;
         float averageScore_2 = (float)4.0/3;
-        //TODO Hardcoded average score
         String output = optionText +
                 "1) Paper 1 is great - " + averageScore_1 + System.lineSeparator() +
                 "2) Paper 2 is my best work - " + averageScore_2 + System.lineSeparator() +
@@ -61,6 +63,7 @@ public class WorkshopReviewSystemTest {
         /*  Test ID: 100b
             Authored: Oscar Mason, Tim Cargan
          */
+
         String input = "P\nGood paper\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
@@ -70,6 +73,10 @@ public class WorkshopReviewSystemTest {
                 "[Paper added]" + System.lineSeparator() +
                 optionText;
         assertEquals(output, outContent.toString() );
+
+        //TearDown
+        WorkshopReviewSystem.remove_test_data();
+        WorkshopReviewSystem.add_test_data();
     }
 
     @Test
@@ -78,7 +85,11 @@ public class WorkshopReviewSystemTest {
             Authored: Oscar Mason, Tim Cargan
          */
 
-        String input = "R\n2\n5\nGood paper\n";
+        //Set up
+        WorkshopReviewSystem.remove_test_data();
+        WorkshopReviewSystem.add_unreviwed_paper_3();
+
+        String input = "R\n3\n5\nGood paper\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
@@ -86,9 +97,13 @@ public class WorkshopReviewSystemTest {
         String output = optionText + "Which paper do you want to add a review to?" + System.lineSeparator() +
                 "What score do you give it?" + System.lineSeparator() +
                 "Please enter your review:" + System.lineSeparator() +
-                "[Review added to Paper 2]" + System.lineSeparator() +
+                "[Review added to Paper 3]" + System.lineSeparator() +
                 optionText;
         assertEquals(output, outContent.toString());
+
+        //TearDown
+        WorkshopReviewSystem.remove_test_data();
+        WorkshopReviewSystem.add_test_data();
     }
 
     @Test
@@ -116,27 +131,12 @@ public class WorkshopReviewSystemTest {
         System.setIn(in);
 
         WorkshopReviewSystem.main(new String[]{""});
+        //TODO; Error message needs fixing here
         String output = optionText + "Command not recognised" + System.lineSeparator()
                 + optionText;
         assertEquals(output, outContent.toString());
     }
 
-    @Test
-    public void workshopPaperSystemMain104() throws WorkshopPaperEmptyTitleException, WorkshopPaperExcessReviewException, WorkshopReviewInvalidScore{
-        /*  Test ID: 104
-            Authored: Oscar Mason, Tim Cargan
-         */
-
-        String input = "Unknown\nX\n";
-        InputStream in = new ByteArrayInputStream(input.getBytes());
-        System.setIn(in);
-
-        WorkshopReviewSystem.main(new String[]{""});
-        //Output is merge of error and Exit test
-        String output = optionText + "Something went wrong: \n" + System.lineSeparator()
-                + optionText + "Goodbye!" + System.lineSeparator();
-        assertEquals(output, outContent.toString());
-    }
 
     @Test
     public void workshopPaperSystemMain106a() throws WorkshopPaperEmptyTitleException, WorkshopPaperExcessReviewException,WorkshopReviewInvalidScore {
@@ -182,7 +182,11 @@ public class WorkshopReviewSystemTest {
             Authored: Oscar Mason, Tim Cargan
          */
 
-        String input = "r\n2\n5\nGood paper\n";
+        //Set up
+        WorkshopReviewSystem.remove_test_data();
+        WorkshopReviewSystem.add_unreviwed_paper_3();
+
+        String input = "r\n3\n5\nGood paper\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
@@ -193,6 +197,10 @@ public class WorkshopReviewSystemTest {
                 "[Review added to Paper 2]" + System.lineSeparator() +
                 optionText;
         assertEquals(output, outContent.toString());
+
+        //TearDown
+        WorkshopReviewSystem.remove_test_data();
+        WorkshopReviewSystem.add_test_data();
     }
 
     @Test
@@ -222,6 +230,7 @@ public class WorkshopReviewSystemTest {
 
         WorkshopReviewSystem.main(new String[]{""});
         String output = optionText + "What is the title of the paper?" + System.lineSeparator() +
+                //TODO: Review Error message
                 "[Error No Title, Paper not added]" + System.lineSeparator() +
                 optionText;
         assertEquals(output, outContent.toString() );
@@ -232,7 +241,7 @@ public class WorkshopReviewSystemTest {
             Authored: Oscar Mason, Tim Cargan
          */
 
-        String input = "P\n " + TEXT_NONASCII + "\n";
+        String input = "P\n" + TEXT_NONASCII + "\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
@@ -243,25 +252,6 @@ public class WorkshopReviewSystemTest {
         assertEquals(output, outContent.toString() );
     }
 
-
-    @Test
-    public void workshopPaperSystemMain111() throws WorkshopPaperEmptyTitleException, WorkshopPaperExcessReviewException, WorkshopReviewInvalidScore{
-        /*  Test ID: 111
-            Authored: Oscar Mason, Tim Cargan
-            TODO: Unfinished Test
-            Note: I don't think this test is needed as we make sure that the obj can hande titles
-         */
-
-        String input = "P\nLook I code stuff\nO\n";
-        InputStream in = new ByteArrayInputStream(input.getBytes());
-        System.setIn(in);
-
-        WorkshopReviewSystem.main(new String[]{""});
-        String output = optionText + "What is the title of the paper?" + System.lineSeparator() +
-                "[Paper added]" + System.lineSeparator() +
-                optionText;
-        assertEquals(output, outContent.toString());
-    }
 
     @Test
     public void workshopPaperSystemMain120() throws WorkshopPaperEmptyTitleException, WorkshopPaperExcessReviewException, WorkshopReviewInvalidScore{
@@ -275,6 +265,7 @@ public class WorkshopReviewSystemTest {
 
         WorkshopReviewSystem.main(new String[]{""});
         String output = optionText + "Which paper do you want to add a review to?" + System.lineSeparator() +
+                //TODO: Review Error
                 "[Error, No such Paper]" + System.lineSeparator() +
                 optionText;
         assertEquals(output, outContent.toString());
@@ -292,6 +283,7 @@ public class WorkshopReviewSystemTest {
         WorkshopReviewSystem.main(new String[]{""});
         String output = optionText + "Which paper do you want to add a review to?" + System.lineSeparator() +
                 "What score do you give it?" + System.lineSeparator() +
+                //TODO: Review Error
                 "[Error, Bad Score]" + System.lineSeparator() +
                 optionText;
         assertEquals(output, outContent.toString());
@@ -311,6 +303,7 @@ public class WorkshopReviewSystemTest {
         String output = optionText + "Which paper do you want to add a review to?" + System.lineSeparator() +
                 "What score do you give it?" + System.lineSeparator() +
                 "Please enter your review:" + System.lineSeparator() +
+                //TODO: Review Error
                 "[Error must enter review text]" + System.lineSeparator() +
                 optionText;
         assertEquals(output, outContent.toString());
@@ -349,6 +342,7 @@ public class WorkshopReviewSystemTest {
         System.setIn(in);
 
         WorkshopReviewSystem.main(new String[]{""});
+        //TODO: Review Error
         String output = optionText + "[There are no papers]" + System.lineSeparator() +
                 optionText;
         assertEquals(output, outContent.toString());
@@ -396,7 +390,8 @@ public class WorkshopReviewSystemTest {
         System.setIn(in);
 
         WorkshopReviewSystem.main(new String[]{""});
-        String output = optionText + "What is the title of the paper?" + System.lineSeparator() +
+        String output = optionText +
+                //TODO: Review Error
                 "[No paper with given ID]" + System.lineSeparator() +
                 optionText;
         assertEquals(output, outContent.toString());

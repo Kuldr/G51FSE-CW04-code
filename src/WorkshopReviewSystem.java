@@ -15,6 +15,7 @@ public class WorkshopReviewSystem {
 		Scanner in = new Scanner(System.in);
 		while (in.hasNextLine()){
 			String s = in.nextLine(); //Bug Fix: 131; Tim Cargan
+			//s = s.toUpperCase();
 			try{
 				if (s.equals("O")) {
 					PrintPaperOverview();
@@ -80,7 +81,7 @@ public class WorkshopReviewSystem {
 	//Bug Fix: 132; Moved test code out of main Tim Cargan
 	public static void add_test_data() {
 		try {
-			//Test code, shouldnt not be in main
+			//Test code, shouldn't not be in main
 			WorkshopPaper p1 = new WorkshopPaper("Paper 1 is great");
 			p1.addReview(new WorkshopReview(4, "This paper is pretty good."));
 			p1.addReview(new WorkshopReview(3, "This paper is good for the workshop."));
@@ -94,6 +95,7 @@ public class WorkshopReviewSystem {
 			p2.addReview(new WorkshopReview(1, "So painful to read."));
 
 			AllPapers.add(p2);
+
 		}catch (Exception e){}
 		//PrintPaperOverview();
 		//PrintAPaper(0);
@@ -102,4 +104,27 @@ public class WorkshopReviewSystem {
 	public static void remove_test_data(){
 		AllPapers.clear();
 	}
+
+	public static void add_unreviwed_paper_3() {
+		try {
+			//Test code, shouldn't not be in main
+			WorkshopPaper p1 = new WorkshopPaper("Paper 1 is great");
+			p1.addReview(new WorkshopReview(4, "This paper is pretty good."));
+			p1.addReview(new WorkshopReview(3, "This paper is good for the workshop."));
+			p1.addReview(new WorkshopReview(2, "This paper is pretty mediocre."));
+
+			AllPapers.add(p1);
+
+			WorkshopPaper p2 = new WorkshopPaper("Paper 2 is my best work");
+			p2.addReview(new WorkshopReview(2, "This can hardly be his best work"));
+			p2.addReview(new WorkshopReview(1, "Ive read better articles in Hello Magazine"));
+			p2.addReview(new WorkshopReview(1, "So painful to read."));
+
+			AllPapers.add(p2);
+			WorkshopPaper p3 = new WorkshopPaper("Paper 3 is my best work");
+			p3.addReview(new WorkshopReview(3, "This can hardly be his best work, its meh"));
+			AllPapers.add(p3);
+		}catch (Exception e){}
+	}
+
 }
