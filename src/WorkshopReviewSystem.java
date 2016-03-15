@@ -35,7 +35,7 @@ public class WorkshopReviewSystem {
 		System.out.println("What do you want to do?\n O = Overview, P = Add Paper, R = Add Review, [num] = Detail of that paper, X = exit");
 		Scanner in = new Scanner(System.in);
 		while (in.hasNextLine()){
-			String s = in.next();
+			String s = in.nextLine(); //Bug Fix: 131; Tim Cargan
 			try{
 				if (s.equals("O")) {
 					PrintPaperOverview();
@@ -62,7 +62,7 @@ public class WorkshopReviewSystem {
 	
 	private static void AddPaper(Scanner in) throws WorkshopPaperEmptyTitleException {
 		System.out.println("What is the title of the paper?");
-		in.nextLine(); // to remove read-in bug
+		//in.nextLine(); // - Bug Fix: 131; Tim Cargan
 		String title = in.nextLine();
 		AllPapers.add(new WorkshopPaper(title));
 		System.out.println("[Paper added]");
