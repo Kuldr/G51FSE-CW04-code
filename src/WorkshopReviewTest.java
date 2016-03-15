@@ -1,8 +1,8 @@
 import Exceptions.WorkshopReviewInvalidScore;
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
+
+import java.net.URL;
+import java.util.Scanner;
 
 import static org.junit.Assert.*;
 
@@ -97,6 +97,7 @@ public class WorkshopReviewTest {
         workshopReview = new WorkshopReview();
         assertNotNull(workshopReview);
     }
+
     @Test
     public void  testWorkshopReviewConstructor51() throws Exception {
         WorkshopReview workshopReview;
@@ -108,6 +109,7 @@ public class WorkshopReviewTest {
         assertNotNull(workshopReview);
         assertEquals(VALID_MIN_SCORE, workshopReview.getRScore());
     }
+
     @Test
     public void  testWorkshopReviewConstructor52() throws Exception {
         WorkshopReview workshopReview;
@@ -155,13 +157,21 @@ public class WorkshopReviewTest {
     }
 
     @Test
-    //TODO: Jon can do this one
     public void  testWorkshopReviewConstructor56() throws Exception {
-        WorkshopReview workshopReview;
         /*
             ID: 56
             Authored: Tim Cargan, Jon Dilks
          */
+
+        URL url = new URL("https://raw.githubusercontent.com/minimaxir/big-list-of-naughty-strings/master/blns.txt");
+        Scanner s = new Scanner(url.openStream());
+
+        while (s.hasNext())
+        {
+            String currentTestString = s.next();
+            WorkshopReview workshopReview = new WorkshopReview(VALID_MID_SCORE, currentTestString);
+            assertEquals(workshopReview.getRReview(), currentTestString);
+        }
 
     }
 
@@ -249,12 +259,11 @@ public class WorkshopReviewTest {
         WorkshopReview workshopReview;
         /*
             ID: 68
-            Authored: Tim Cargan, Jon Dilks
+            Authored: Tim Cargan, Jon Dilks, Ben Charlton
          */
-        // TODO: Check what the output should be
         workshopReview = new WorkshopReview();
         String toString = workshopReview.toString();
-        assertEquals("Score = * \n Review: \n", toString);
+        assertEquals("Score = *\nReview: \n", toString);
     }
     
     @Test
@@ -264,9 +273,8 @@ public class WorkshopReviewTest {
             ID: 69
             Authored: Tim Cargan, Jon Dilks
          */
-        // TODO: Check what the output should be
         workshopReview = new WorkshopReview(VALID_MID_SCORE, TEXT);
-        String expected = "Score: ***\n Review: " + TEXT + "\n";
+        String expected = "Score = ***\nReview: " + TEXT + "\n";
         assertEquals(expected, workshopReview.toString());
     }
 
