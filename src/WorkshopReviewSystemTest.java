@@ -26,6 +26,7 @@ public class WorkshopReviewSystemTest {
     @Before
     public void setUpStreams(){
         System.setOut(new PrintStream(outContent));
+        WorkshopReviewSystem.add_test_data();
 
     }
 
@@ -39,14 +40,12 @@ public class WorkshopReviewSystemTest {
         /*  Test ID: 100a
             Authored: Oscar Mason, Tim Cargan
          */
-        WorkshopReviewSystem workshopReviewSystem = new WorkshopReviewSystem();
-        workshopReviewSystem.add_test_data();
 
         String input = "O";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
-        workshopReviewSystem.main(new String[]{""});
+        WorkshopReviewSystem.main(new String[]{""});
         float averageScore_1 = (float)9/3;
         float averageScore_2 = (float)4.0/3;
         //TODO Hardcoded average score
@@ -62,13 +61,11 @@ public class WorkshopReviewSystemTest {
         /*  Test ID: 100b
             Authored: Oscar Mason, Tim Cargan
          */
-        WorkshopReviewSystem workshopReviewSystem = new WorkshopReviewSystem();
-        workshopReviewSystem.add_test_data();
         String input = "P\nGood paper\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
-        workshopReviewSystem.main(new String[]{""});
+        WorkshopReviewSystem.main(new String[]{""});
         String output = optionText + "What is the title of the paper?" + System.lineSeparator() +
                 "[Paper added]" + System.lineSeparator() +
                 optionText;
@@ -80,13 +77,12 @@ public class WorkshopReviewSystemTest {
         /*  Test ID: 100c
             Authored: Oscar Mason, Tim Cargan
          */
-        WorkshopReviewSystem workshopReviewSystem = new WorkshopReviewSystem();
-        workshopReviewSystem.add_test_data();
+
         String input = "R\n2\n5\nGood paper\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
-        workshopReviewSystem.main(new String[]{""});
+        WorkshopReviewSystem.main(new String[]{""});
         String output = optionText + "Which paper do you want to add a review to?" + System.lineSeparator() +
                 "What score do you give it?" + System.lineSeparator() +
                 "Please enter your review:" + System.lineSeparator() +
@@ -100,13 +96,11 @@ public class WorkshopReviewSystemTest {
         /*  Test ID: 100d
             Authored: Oscar Mason, Tim Cargan
          */
-        WorkshopReviewSystem workshopReviewSystem = new WorkshopReviewSystem();
-        workshopReviewSystem.add_test_data();
         String input = "X\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
-        workshopReviewSystem.main(new String[]{""});
+        WorkshopReviewSystem.main(new String[]{""});
         String output = optionText + "Goodbye!" + System.lineSeparator();
         assertEquals(output, outContent.toString());
     }
@@ -116,13 +110,12 @@ public class WorkshopReviewSystemTest {
         /*  Test ID: 103
             Authored: Oscar Mason, Tim Cargan
          */
-        WorkshopReviewSystem workshopReviewSystem = new WorkshopReviewSystem();
-        workshopReviewSystem.add_test_data();
+
         String input = "Unknown\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
-        workshopReviewSystem.main(new String[]{""});
+        WorkshopReviewSystem.main(new String[]{""});
         String output = optionText + "Command not recognised" + System.lineSeparator()
                 + optionText;
         assertEquals(output, outContent.toString());
@@ -133,13 +126,12 @@ public class WorkshopReviewSystemTest {
         /*  Test ID: 104
             Authored: Oscar Mason, Tim Cargan
          */
-        WorkshopReviewSystem workshopReviewSystem = new WorkshopReviewSystem();
-        workshopReviewSystem.add_test_data();
+
         String input = "Unknown\nX\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
-        workshopReviewSystem.main(new String[]{""});
+        WorkshopReviewSystem.main(new String[]{""});
         //Output is merge of error and Exit test
         String output = optionText + "Something went wrong: \n" + System.lineSeparator()
                 + optionText + "Goodbye!" + System.lineSeparator();
@@ -151,13 +143,12 @@ public class WorkshopReviewSystemTest {
         /*  Test ID: 106a
             Authored: Oscar Mason, Tim Cargan
          */
-        WorkshopReviewSystem workshopReviewSystem = new WorkshopReviewSystem();
-        workshopReviewSystem.add_test_data();
+
         String input = "o";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
-        workshopReviewSystem.main(new String[]{""});
+        WorkshopReviewSystem.main(new String[]{""});
         float averageScore_1 = (float)9/3;
         float averageScore_2 = (float)4.0/3;
         //TODO Hardcoded average score
@@ -173,13 +164,12 @@ public class WorkshopReviewSystemTest {
         /*  Test ID: 106b
             Authored: Oscar Mason, Tim Cargan
          */
-        WorkshopReviewSystem workshopReviewSystem = new WorkshopReviewSystem();
-        workshopReviewSystem.add_test_data();
+
         String input = "p\nGood paper\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
-        workshopReviewSystem.main(new String[]{""});
+        WorkshopReviewSystem.main(new String[]{""});
         String output = optionText + "What is the title of the paper?" + System.lineSeparator() +
                 "[Paper added]" + System.lineSeparator() +
                 optionText;
@@ -191,13 +181,12 @@ public class WorkshopReviewSystemTest {
         /*  Test ID: 106c
             Authored: Oscar Mason, Tim Cargan
          */
-        WorkshopReviewSystem workshopReviewSystem = new WorkshopReviewSystem();
-        workshopReviewSystem.add_test_data();
+
         String input = "r\n2\n5\nGood paper\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
-        workshopReviewSystem.main(new String[]{""});
+        WorkshopReviewSystem.main(new String[]{""});
         String output = optionText + "Which paper do you want to add a review to?" + System.lineSeparator() +
                 "What score do you give it?" + System.lineSeparator() +
                 "Please enter your review:" + System.lineSeparator() +
@@ -211,13 +200,12 @@ public class WorkshopReviewSystemTest {
         /*  Test ID: 106d
             Authored: Oscar Mason, Tim Cargan
          */
-        WorkshopReviewSystem workshopReviewSystem = new WorkshopReviewSystem();
-        workshopReviewSystem.add_test_data();
+
         String input = "x\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
-        workshopReviewSystem.main(new String[]{""});
+        WorkshopReviewSystem.main(new String[]{""});
         String output = optionText + "Goodbye!" + System.lineSeparator();
         assertEquals(output, outContent.toString());
     }
@@ -227,13 +215,12 @@ public class WorkshopReviewSystemTest {
         /*  Test ID: 108
             Authored: Oscar Mason, Tim Cargan
          */
-        WorkshopReviewSystem workshopReviewSystem = new WorkshopReviewSystem();
-        workshopReviewSystem.add_test_data();
+
         String input = "P\n\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
-        workshopReviewSystem.main(new String[]{""});
+        WorkshopReviewSystem.main(new String[]{""});
         String output = optionText + "What is the title of the paper?" + System.lineSeparator() +
                 "[Error No Title, Paper not added]" + System.lineSeparator() +
                 optionText;
@@ -244,13 +231,12 @@ public class WorkshopReviewSystemTest {
         /*  Test ID: 108
             Authored: Oscar Mason, Tim Cargan
          */
-        WorkshopReviewSystem workshopReviewSystem = new WorkshopReviewSystem();
-        workshopReviewSystem.add_test_data();
+
         String input = "P\n " + TEXT_NONASCII + "\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
-        workshopReviewSystem.main(new String[]{""});
+        WorkshopReviewSystem.main(new String[]{""});
         String output = optionText + "What is the title of the paper?" + System.lineSeparator() +
                 "[Paper added]" + System.lineSeparator() +
                 optionText;
@@ -265,13 +251,12 @@ public class WorkshopReviewSystemTest {
             TODO: Unfinished Test
             Note: I don't think this test is needed as we make sure that the obj can hande titles
          */
-        WorkshopReviewSystem workshopReviewSystem = new WorkshopReviewSystem();
-        workshopReviewSystem.add_test_data();
+
         String input = "P\nLook I code stuff\nO\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
-        workshopReviewSystem.main(new String[]{""});
+        WorkshopReviewSystem.main(new String[]{""});
         String output = optionText + "What is the title of the paper?" + System.lineSeparator() +
                 "[Paper added]" + System.lineSeparator() +
                 optionText;
@@ -283,19 +268,142 @@ public class WorkshopReviewSystemTest {
         /*  Test ID: 120
             Authored: Oscar Mason, Tim Cargan
          */
-        WorkshopReviewSystem workshopReviewSystem = new WorkshopReviewSystem();
-        workshopReviewSystem.add_test_data();
+
         String input = "R\n5\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
-        workshopReviewSystem.main(new String[]{""});
+        WorkshopReviewSystem.main(new String[]{""});
         String output = optionText + "Which paper do you want to add a review to?" + System.lineSeparator() +
                 "[Error, No such Paper]" + System.lineSeparator() +
                 optionText;
         assertEquals(output, outContent.toString());
     }
 
+    @Test
+    public void workshopPaperSystemMain122() throws WorkshopPaperEmptyTitleException, WorkshopPaperExcessReviewException{
+        /*  Test ID: 122
+            Authored: Oscar Mason, Tim Cargan
+         */
+        String input = "R\n2\n0\n";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+
+        WorkshopReviewSystem.main(new String[]{""});
+        String output = optionText + "Which paper do you want to add a review to?" + System.lineSeparator() +
+                "What score do you give it?" + System.lineSeparator() +
+                "[Error, Bad Score]" + System.lineSeparator() +
+                optionText;
+        assertEquals(output, outContent.toString());
+    }
+
+    @Test
+    public void workshopPaperSystemMain123() throws WorkshopPaperEmptyTitleException, WorkshopPaperExcessReviewException{
+        /*  Test ID: 123
+            Authored: Oscar Mason, Tim Cargan
+         */
+
+        String input = "R\n2\n3\n\n";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+
+        WorkshopReviewSystem.main(new String[]{""});
+        String output = optionText + "Which paper do you want to add a review to?" + System.lineSeparator() +
+                "What score do you give it?" + System.lineSeparator() +
+                "Please enter your review:" + System.lineSeparator() +
+                "[Error must enter review text]" + System.lineSeparator() +
+                optionText;
+        assertEquals(output, outContent.toString());
+    }
+
+    @Test
+    public void workshopPaperSystemMain124() throws WorkshopPaperEmptyTitleException, WorkshopPaperExcessReviewException{
+        /*  Test ID: 124
+            Authored: Oscar Mason, Tim Cargan
+         */
+
+        String input = "R\n2\n3\n" + TEXT_NONASCII + "\n";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+
+        WorkshopReviewSystem.main(new String[]{""});
+        String output = optionText + "Which paper do you want to add a review to?" + System.lineSeparator() +
+                "What score do you give it?" + System.lineSeparator() +
+                "Please enter your review:" + System.lineSeparator() +
+                "[Review added to Paper 2]" + System.lineSeparator() +
+                optionText;
+        assertEquals(output, outContent.toString());
+    }
+
+    @Test
+    public void workshopPaperSystemMain127() throws WorkshopPaperEmptyTitleException, WorkshopPaperExcessReviewException{
+        /*  Test ID: 127
+            Authored: Oscar Mason, Tim Cargan
+         */
+
+        //SetUp
+        WorkshopReviewSystem.remove_test_data();
+
+        String input = "O\n";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+
+        WorkshopReviewSystem.main(new String[]{""});
+        String output = optionText + "[There are no papers]" + System.lineSeparator() +
+                optionText;
+        assertEquals(output, outContent.toString());
+
+        //Tear Down
+        WorkshopReviewSystem.add_test_data();
+    }
+
+    @Test
+    public void workshopPaperSystemMain130() throws WorkshopPaperEmptyTitleException, WorkshopPaperExcessReviewException{
+        /*  Test ID: 130
+            Authored: Oscar Mason, Tim Cargan
+         */
+
+        //SetUp
+        WorkshopReviewSystem.remove_test_data();
+
+        String input = "P\nTest\n1\n";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+
+        WorkshopReviewSystem.main(new String[]{""});
+        String output = optionText + "What is the title of the paper?" + System.lineSeparator() +
+                "[Paper added]" + System.lineSeparator() +
+                optionText +
+                "Paper 1 - No reviews submitted yet." + System.lineSeparator() +
+                optionText;
+        assertEquals(output, outContent.toString());
+
+        //Tear Down
+        WorkshopReviewSystem.add_test_data();
+    }
+
+    @Test
+    public void workshopPaperSystemMain131() throws WorkshopPaperEmptyTitleException, WorkshopPaperExcessReviewException{
+        /*  Test ID: 131
+            Authored: Oscar Mason, Tim Cargan
+         */
+
+        //SetUp
+        WorkshopReviewSystem.remove_test_data();
+
+        String input = "51\n";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+
+        WorkshopReviewSystem.main(new String[]{""});
+        String output = optionText + "What is the title of the paper?" + System.lineSeparator() +
+                "[No paper with given ID]" + System.lineSeparator() +
+                optionText;
+        assertEquals(output, outContent.toString());
+
+        //Tear Down
+        WorkshopReviewSystem.add_test_data();
+    }
 
 
 }

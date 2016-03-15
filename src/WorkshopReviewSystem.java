@@ -1,5 +1,3 @@
-
-
 import Exceptions.*;
 
 import java.util.*;
@@ -75,29 +73,33 @@ public class WorkshopReviewSystem {
 	
 	private static void PrintAPaper(int paperID) {
 		WorkshopPaper wp = AllPapers.get(paperID);
-		System.out.print("\nPaper " + (paperID+1) + " - " + wp.toString());
+		System.out.println("Paper " + (paperID+1) + " - " + wp.toString()); //Bug Fix: 134, prints approrate lin breaks in right place: Tim Cargan
 	}
 
 	//Test code
 	//Bug Fix: 132; Moved test code out of main Tim Cargan
-	public void add_test_data() throws WorkshopPaperEmptyTitleException, WorkshopPaperExcessReviewException, WorkshopReviewInvalidScore{
-		//Test code, shouldnt not be in main
-		WorkshopPaper p1 = new WorkshopPaper("Paper 1 is great");
-		p1.addReview(new WorkshopReview(4,"This paper is pretty good."));
-		p1.addReview(new WorkshopReview(3,"This paper is good for the workshop."));
-		p1.addReview(new WorkshopReview(2, "This paper is pretty mediocre."));
+	public static void add_test_data() {
+		try {
+			//Test code, shouldnt not be in main
+			WorkshopPaper p1 = new WorkshopPaper("Paper 1 is great");
+			p1.addReview(new WorkshopReview(4, "This paper is pretty good."));
+			p1.addReview(new WorkshopReview(3, "This paper is good for the workshop."));
+			p1.addReview(new WorkshopReview(2, "This paper is pretty mediocre."));
 
-		AllPapers.add(p1);
+			AllPapers.add(p1);
 
-		WorkshopPaper p2 = new WorkshopPaper("Paper 2 is my best work");
-		p2.addReview(new WorkshopReview(2,"This can hardly be his best work"));
-		p2.addReview(new WorkshopReview(1,"Ive read better articles in Hello Magazine"));
-		p2.addReview(new WorkshopReview(1,"So painful to read."));
+			WorkshopPaper p2 = new WorkshopPaper("Paper 2 is my best work");
+			p2.addReview(new WorkshopReview(2, "This can hardly be his best work"));
+			p2.addReview(new WorkshopReview(1, "Ive read better articles in Hello Magazine"));
+			p2.addReview(new WorkshopReview(1, "So painful to read."));
 
-		AllPapers.add(p2);
-
+			AllPapers.add(p2);
+		}catch (Exception e){}
 		//PrintPaperOverview();
 		//PrintAPaper(0);
 		//PrintAPaper(1);
+	}
+	public static void remove_test_data(){
+		AllPapers.clear();
 	}
 }
