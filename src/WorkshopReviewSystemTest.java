@@ -39,7 +39,7 @@ public class WorkshopReviewSystemTest {
     }
 
     @Test
-    public void workshopPaperSystemMain100a() throws WorkshopPaperEmptyTitleException, WorkshopPaperExcessReviewException, WorkshopReviewInvalidScore {
+    public void workshopPaperSystemMain100a() {
         /*  Test ID: 100a
             Authored: Oscar Mason, Tim Cargan
          */
@@ -59,7 +59,7 @@ public class WorkshopReviewSystemTest {
     }
 
     @Test
-    public void workshopPaperSystemMain100b() throws Exception{
+    public void workshopPaperSystemMain100b() {
         /*  Test ID: 100b
             Authored: Oscar Mason, Tim Cargan
          */
@@ -80,7 +80,7 @@ public class WorkshopReviewSystemTest {
     }
 
     @Test
-    public void workshopPaperSystemMain100c() throws WorkshopPaperEmptyTitleException, WorkshopPaperExcessReviewException, WorkshopReviewInvalidScore {
+    public void workshopPaperSystemMain100c() {
         /*  Test ID: 100c
             Authored: Oscar Mason, Tim Cargan
          */
@@ -107,7 +107,7 @@ public class WorkshopReviewSystemTest {
     }
 
     @Test
-    public void workshopPaperSystemMain100d() throws WorkshopPaperEmptyTitleException, WorkshopPaperExcessReviewException, WorkshopReviewInvalidScore{
+    public void workshopPaperSystemMain100d() {
         /*  Test ID: 100d
             Authored: Oscar Mason, Tim Cargan
          */
@@ -121,7 +121,7 @@ public class WorkshopReviewSystemTest {
     }
 
     @Test
-    public void workshopPaperSystemMain103() throws WorkshopPaperEmptyTitleException, WorkshopPaperExcessReviewException, WorkshopReviewInvalidScore{
+    public void workshopPaperSystemMain103() {
         /*  Test ID: 103
             Authored: Oscar Mason, Tim Cargan
          */
@@ -139,7 +139,7 @@ public class WorkshopReviewSystemTest {
 
 
     @Test
-    public void workshopPaperSystemMain106a() throws WorkshopPaperEmptyTitleException, WorkshopPaperExcessReviewException,WorkshopReviewInvalidScore {
+    public void workshopPaperSystemMain106a()  {
         /*  Test ID: 106a
             Authored: Oscar Mason, Tim Cargan
          */
@@ -167,7 +167,7 @@ public class WorkshopReviewSystemTest {
     }
 
     @Test
-    public void workshopPaperSystemMain106b() throws Exception{
+    public void workshopPaperSystemMain106b() {
         /*  Test ID: 106b
             Authored: Oscar Mason, Tim Cargan
          */
@@ -191,7 +191,7 @@ public class WorkshopReviewSystemTest {
     }
 
     @Test
-    public void workshopPaperSystemMain106c() throws WorkshopPaperEmptyTitleException, WorkshopPaperExcessReviewException, WorkshopReviewInvalidScore {
+    public void workshopPaperSystemMain106c() {
         /*  Test ID: 106c
             Authored: Oscar Mason, Tim Cargan
          */
@@ -218,7 +218,7 @@ public class WorkshopReviewSystemTest {
     }
 
     @Test
-    public void workshopPaperSystemMain106d() throws WorkshopPaperEmptyTitleException, WorkshopPaperExcessReviewException, WorkshopReviewInvalidScore{
+    public void workshopPaperSystemMain106d() {
         /*  Test ID: 106d
             Authored: Oscar Mason, Tim Cargan
          */
@@ -241,7 +241,7 @@ public class WorkshopReviewSystemTest {
     }
 
     @Test
-    public void workshopPaperSystemMain108() throws WorkshopPaperEmptyTitleException, WorkshopPaperExcessReviewException, WorkshopReviewInvalidScore{
+    public void workshopPaperSystemMain108() {
         /*  Test ID: 108
             Authored: Oscar Mason, Tim Cargan
          */
@@ -258,7 +258,7 @@ public class WorkshopReviewSystemTest {
         assertEquals(output, outContent.toString() );
     }
     @Test
-    public void workshopPaperSystemMain109() throws WorkshopPaperEmptyTitleException, WorkshopPaperExcessReviewException, WorkshopReviewInvalidScore{
+    public void workshopPaperSystemMain109() {
         /*  Test ID: 108
             Authored: Oscar Mason, Tim Cargan
          */
@@ -276,7 +276,7 @@ public class WorkshopReviewSystemTest {
 
 
     @Test
-    public void workshopPaperSystemMain120() throws WorkshopPaperEmptyTitleException, WorkshopPaperExcessReviewException, WorkshopReviewInvalidScore{
+    public void workshopPaperSystemMain120() {
         /*  Test ID: 120
             Authored: Oscar Mason, Tim Cargan
          */
@@ -304,7 +304,7 @@ public class WorkshopReviewSystemTest {
     }
 
     @Test
-    public void workshopPaperSystemMain122() throws WorkshopPaperEmptyTitleException, WorkshopPaperExcessReviewException{
+    public void workshopPaperSystemMain122() {
         /*  Test ID: 122
             Authored: Oscar Mason, Tim Cargan
          */
@@ -332,7 +332,7 @@ public class WorkshopReviewSystemTest {
     }
 
     @Test
-    public void workshopPaperSystemMain123() throws WorkshopPaperEmptyTitleException, WorkshopPaperExcessReviewException{
+    public void workshopPaperSystemMain123() {
         /*  Test ID: 123
             Authored: Oscar Mason, Tim Cargan
          */
@@ -360,7 +360,7 @@ public class WorkshopReviewSystemTest {
     }
 
     @Test
-    public void workshopPaperSystemMain124() throws WorkshopPaperEmptyTitleException, WorkshopPaperExcessReviewException{
+    public void workshopPaperSystemMain124() {
         /*  Test ID: 124
             Authored: Oscar Mason, Tim Cargan
          */
@@ -387,7 +387,7 @@ public class WorkshopReviewSystemTest {
     }
 
     @Test
-    public void workshopPaperSystemMain127() throws WorkshopPaperEmptyTitleException, WorkshopPaperExcessReviewException{
+    public void workshopPaperSystemMain127() {
         /*  Test ID: 127
             Authored: Oscar Mason, Tim Cargan
          */
@@ -410,7 +410,7 @@ public class WorkshopReviewSystemTest {
     }
 
     @Test
-    public void workshopPaperSystemMain130() throws WorkshopPaperEmptyTitleException, WorkshopPaperExcessReviewException{
+    public void workshopPaperSystemMain130() {
         /*  Test ID: 130
             Authored: Oscar Mason, Tim Cargan
          */
@@ -436,7 +436,7 @@ public class WorkshopReviewSystemTest {
     }
 
     @Test
-    public void workshopPaperSystemMain131() throws WorkshopPaperEmptyTitleException, WorkshopPaperExcessReviewException{
+    public void workshopPaperSystemMain131() {
         /*  Test ID: 131
             Authored: Oscar Mason, Tim Cargan
          */

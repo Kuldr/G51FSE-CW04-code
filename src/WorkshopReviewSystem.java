@@ -7,7 +7,7 @@ public class WorkshopReviewSystem {
 
 	private static ArrayList<WorkshopPaper> AllPapers = new ArrayList<WorkshopPaper>(); //Bug Fix: 133, assignment need to be moved out of main here to make test run; Tim Cargan
 
-	public static void main(String[] args) throws WorkshopPaperEmptyTitleException, WorkshopPaperExcessReviewException /*TODO : Handle the exceptions properly*/ {
+	public static void main(String[] args) /*TODO : Handle the exceptions properly*/ {
 		// TODO Auto-generated method stub
 
 		
@@ -51,15 +51,21 @@ public class WorkshopReviewSystem {
 		
 	}
 	
-	private static void AddPaper(Scanner in) throws WorkshopPaperEmptyTitleException {
+	private static void AddPaper(Scanner in) {
 		System.out.println("What is the title of the paper?");
-		//in.nextLine(); // - Bug Fix: 131; Tim Cargan
+		//in.nextLine(); // - Bug Fix: 135; Tim Cargan
 		String title = in.nextLine();
-		AllPapers.add(new WorkshopPaper(title));
+		//Bug Fix: 108, now shows a nice error message to user; Tim Cargan
+		try {
+			AllPapers.add(new WorkshopPaper(title));
+		}catch (WorkshopPaperEmptyTitleException e){
+			System.out.println("[Error No Title, Paper not added]");
+			return;
+		}
 		System.out.println("[Paper added]");
 	}
 	
-	private static void AddReview(Scanner in) throws WorkshopPaperExcessReviewException, WorkshopReviewInvalidScore {
+	private static void AddReview(Scanner in) {
 		System.out.println("Which paper do you want to add a review to?");
 		int x = in.nextInt();
 		System.out.println("What score do you give it?");
@@ -69,21 +75,28 @@ public class WorkshopReviewSystem {
 		in.nextLine(); //to remove read-in bug
 		String review = in.nextLine();
 
-		WorkshopPaper wp = null;
-
+		//Bug Fix: 123, makes sure users enter a view and shows appriate message
+		if(review.equals("")){
+			System.out.println("[Error must enter review text]");
+			return;
+		}
 		//Bug Fix: 120; Now outputs better error message for invalid paper id - Tim Cargan
+		WorkshopPaper wp = null;
 		try {
 			wp = AllPapers.get(x - 1);
-
 		}catch(IndexOutOfBoundsException e){
 			System.out.println("[Error, no such Paper]");
 			return;
 		}
+
 		//Bug Fix 122: Now outputs better error message for the user - Tim Cargan
 		try {
 			wp.addReview(new WorkshopReview(score, review));
-		}catch (WorkshopReviewInvalidScore e){
+		}catch (WorkshopReviewInvalidScore e ){
 			System.out.println("[Error, Bad Score]");
+			return;
+		}catch (WorkshopPaperExcessReviewException e){
+			System.out.println("[Error paper already has 3 reviews]");
 			return;
 		}
 		System.out.println("[Review added to Paper " + x + "]");
