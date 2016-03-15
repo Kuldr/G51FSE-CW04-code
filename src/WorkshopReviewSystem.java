@@ -7,35 +7,16 @@ import java.util.*;
 
 public class WorkshopReviewSystem {
 
-	private static ArrayList<WorkshopPaper> AllPapers;
+	private static ArrayList<WorkshopPaper> AllPapers = new ArrayList<WorkshopPaper>(); //Bug Fix: 133, assignment need to be moved out of main here to make test run; Tim Cargan
 
 	public static void main(String[] args) throws WorkshopPaperEmptyTitleException, WorkshopPaperExcessReviewException /*TODO : Handle the exceptions properly*/ {
 		// TODO Auto-generated method stub
 
-		AllPapers = new ArrayList<WorkshopPaper>();
-		
-		WorkshopPaper p1 = new WorkshopPaper("Paper 1 is great");
-		p1.addReview(new WorkshopReview(4,"This paper is pretty good."));
-		p1.addReview(new WorkshopReview(3,"This paper is good for the workshop."));
-		p1.addReview(new WorkshopReview(2, "This paper is pretty mediocre."));
-		
-		AllPapers.add(p1);
-		
-		WorkshopPaper p2 = new WorkshopPaper("Paper 2 is my best work");
-		p2.addReview(new WorkshopReview(2,"This can hardly be his best work"));
-		p2.addReview(new WorkshopReview(1,"Ive read better articles in Hello Magazine"));
-		p2.addReview(new WorkshopReview(1,"So painful to read."));
-		
-		AllPapers.add(p2);
-		
-		//PrintPaperOverview();
-		//PrintAPaper(0);
-		//PrintAPaper(1);
 		
 		System.out.println("What do you want to do?\n O = Overview, P = Add Paper, R = Add Review, [num] = Detail of that paper, X = exit");
 		Scanner in = new Scanner(System.in);
 		while (in.hasNextLine()){
-			String s = in.next();
+			String s = in.nextLine(); //Bug Fix: 131; Tim Cargan
 			try{
 				if (s.equals("O")) {
 					PrintPaperOverview();
@@ -62,7 +43,7 @@ public class WorkshopReviewSystem {
 	
 	private static void AddPaper(Scanner in) throws WorkshopPaperEmptyTitleException {
 		System.out.println("What is the title of the paper?");
-		in.nextLine(); // to remove read-in bug
+		//in.nextLine(); // - Bug Fix: 131; Tim Cargan
 		String title = in.nextLine();
 		AllPapers.add(new WorkshopPaper(title));
 		System.out.println("[Paper added]");
@@ -97,4 +78,26 @@ public class WorkshopReviewSystem {
 		System.out.print("\nPaper " + (paperID+1) + " - " + wp.toString());
 	}
 
+	//Test code
+	//Bug Fix: 132; Moved test code out of main Tim Cargan
+	public void add_test_data() throws WorkshopPaperEmptyTitleException, WorkshopPaperExcessReviewException{
+		//Test code, shouldnt not be in main
+		WorkshopPaper p1 = new WorkshopPaper("Paper 1 is great");
+		p1.addReview(new WorkshopReview(4,"This paper is pretty good."));
+		p1.addReview(new WorkshopReview(3,"This paper is good for the workshop."));
+		p1.addReview(new WorkshopReview(2, "This paper is pretty mediocre."));
+
+		AllPapers.add(p1);
+
+		WorkshopPaper p2 = new WorkshopPaper("Paper 2 is my best work");
+		p2.addReview(new WorkshopReview(2,"This can hardly be his best work"));
+		p2.addReview(new WorkshopReview(1,"Ive read better articles in Hello Magazine"));
+		p2.addReview(new WorkshopReview(1,"So painful to read."));
+
+		AllPapers.add(p2);
+
+		//PrintPaperOverview();
+		//PrintAPaper(0);
+		//PrintAPaper(1);
+	}
 }
