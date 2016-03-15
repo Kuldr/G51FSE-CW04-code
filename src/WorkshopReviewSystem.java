@@ -15,7 +15,7 @@ public class WorkshopReviewSystem {
 		Scanner in = new Scanner(System.in);
 		while (in.hasNextLine()){
 			String s = in.nextLine(); //Bug Fix: 131; Tim Cargan
-			//s = s.toUpperCase();
+			s = s.toUpperCase(); //Bug Fix: 106; Can now deal lowercase letters
 			try{
 				if (s.equals("O")) {
 					PrintPaperOverview();
@@ -26,10 +26,21 @@ public class WorkshopReviewSystem {
 				} else if (s.equals("X")) {
 					System.out.println("Goodbye!");
 					break;
-				} else if (Integer.parseInt(s) != -1 ) {
-					PrintAPaper(Integer.parseInt(s)-1);
 				} else {
-					System.out.println("Command not recognised");
+					//Bug Fix 103 - now runs the '#id' command or outputs apropreate message if command unknow
+					boolean isCommandANumber = true;
+					try {
+						if (Integer.parseInt(s) > 0) {
+							PrintAPaper(Integer.parseInt(s) - 1);
+						}
+					}catch (Exception e){
+						isCommandANumber = false;
+					}
+
+					if (!isCommandANumber){
+						System.out.println("Command not recognised");
+					}
+
 				}
 			} catch (Exception e) {
 				System.out.println("Something went wrong: " + e.toString() + "\n");
@@ -53,15 +64,37 @@ public class WorkshopReviewSystem {
 		int x = in.nextInt();
 		System.out.println("What score do you give it?");
 		int score = in.nextInt();
+
 		System.out.println("Please enter your review:");
 		in.nextLine(); //to remove read-in bug
 		String review = in.nextLine();
-		WorkshopPaper wp = AllPapers.get(x-1);
-		wp.addReview(new WorkshopReview(score,review));
+
+		WorkshopPaper wp = null;
+
+		//Bug Fix: 120; Now outputs better error message for invalid paper id - Tim Cargan
+		try {
+			wp = AllPapers.get(x - 1);
+
+		}catch(IndexOutOfBoundsException e){
+			System.out.println("[Error, no such Paper]");
+			return;
+		}
+		//Bug Fix 122: Now outputs better error message for the user - Tim Cargan
+		try {
+			wp.addReview(new WorkshopReview(score, review));
+		}catch (WorkshopReviewInvalidScore e){
+			System.out.println("[Error, Bad Score]");
+			return;
+		}
 		System.out.println("[Review added to Paper " + x + "]");
+
+
 	}
 	
 	private static void PrintPaperOverview(){
+		if (AllPapers.size() == 0){
+			System.out.println("[There are no papers]");
+		}
 		for (int x = 0; x < AllPapers.size(); x++) {
 			WorkshopPaper wp = AllPapers.get(x);
 			try{
@@ -73,8 +106,14 @@ public class WorkshopReviewSystem {
 	}
 	
 	private static void PrintAPaper(int paperID) {
-		WorkshopPaper wp = AllPapers.get(paperID);
-		System.out.println("Paper " + (paperID+1) + " - " + wp.toString()); //Bug Fix: 134, prints approrate lin breaks in right place: Tim Cargan
+		//Bug Fix: 131 Prints a nice error message for the user
+		try {
+			WorkshopPaper wp = AllPapers.get(paperID);
+			System.out.println("Paper " + (paperID+1) + " - " + wp.toString()); //Bug Fix: 134, prints approrate lin breaks in right place: Tim Cargan
+		}catch (IndexOutOfBoundsException e) {
+			System.out.println("[No paper with given ID]");
+		}
+
 	}
 
 	//Test code

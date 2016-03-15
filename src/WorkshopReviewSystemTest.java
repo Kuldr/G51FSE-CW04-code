@@ -143,6 +143,9 @@ public class WorkshopReviewSystemTest {
         /*  Test ID: 106a
             Authored: Oscar Mason, Tim Cargan
          */
+        //Set up
+        WorkshopReviewSystem.remove_test_data();
+        WorkshopReviewSystem.add_test_data();
 
         String input = "o";
         InputStream in = new ByteArrayInputStream(input.getBytes());
@@ -157,6 +160,10 @@ public class WorkshopReviewSystemTest {
                 "2) Paper 2 is my best work - " + averageScore_2 + System.lineSeparator() +
                 optionText;
         assertEquals(output, outContent.toString());
+
+        //Tear down
+        WorkshopReviewSystem.remove_test_data();
+        WorkshopReviewSystem.add_test_data();
     }
 
     @Test
@@ -164,6 +171,9 @@ public class WorkshopReviewSystemTest {
         /*  Test ID: 106b
             Authored: Oscar Mason, Tim Cargan
          */
+        //Set up
+        WorkshopReviewSystem.remove_test_data();
+        WorkshopReviewSystem.add_test_data();
 
         String input = "p\nGood paper\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());
@@ -174,6 +184,10 @@ public class WorkshopReviewSystemTest {
                 "[Paper added]" + System.lineSeparator() +
                 optionText;
         assertEquals(output, outContent.toString() );
+
+        //Set up
+        WorkshopReviewSystem.remove_test_data();
+        WorkshopReviewSystem.add_test_data();
     }
 
     @Test
@@ -194,7 +208,7 @@ public class WorkshopReviewSystemTest {
         String output = optionText + "Which paper do you want to add a review to?" + System.lineSeparator() +
                 "What score do you give it?" + System.lineSeparator() +
                 "Please enter your review:" + System.lineSeparator() +
-                "[Review added to Paper 2]" + System.lineSeparator() +
+                "[Review added to Paper 3]" + System.lineSeparator() +
                 optionText;
         assertEquals(output, outContent.toString());
 
@@ -209,6 +223,10 @@ public class WorkshopReviewSystemTest {
             Authored: Oscar Mason, Tim Cargan
          */
 
+        //Set up
+        WorkshopReviewSystem.remove_test_data();
+        WorkshopReviewSystem.add_test_data();
+
         String input = "x\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
@@ -216,6 +234,10 @@ public class WorkshopReviewSystemTest {
         WorkshopReviewSystem.main(new String[]{""});
         String output = optionText + "Goodbye!" + System.lineSeparator();
         assertEquals(output, outContent.toString());
+
+        //Tear Down
+        WorkshopReviewSystem.remove_test_data();
+        WorkshopReviewSystem.add_test_data();
     }
 
     @Test
@@ -259,16 +281,26 @@ public class WorkshopReviewSystemTest {
             Authored: Oscar Mason, Tim Cargan
          */
 
-        String input = "R\n5\n";
+        //Set up
+        WorkshopReviewSystem.remove_test_data();
+        WorkshopReviewSystem.add_test_data();
+
+        String input = "R\n5\n3\nTest\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
         WorkshopReviewSystem.main(new String[]{""});
         String output = optionText + "Which paper do you want to add a review to?" + System.lineSeparator() +
+                "What score do you give it?" + System.lineSeparator() +
+                "Please enter your review:" + System.lineSeparator() +
                 //TODO: Review Error
-                "[Error, No such Paper]" + System.lineSeparator() +
+                "[Error, no such Paper]" + System.lineSeparator() +
                 optionText;
         assertEquals(output, outContent.toString());
+
+        //Set up
+        WorkshopReviewSystem.remove_test_data();
+        WorkshopReviewSystem.add_test_data();
     }
 
     @Test
@@ -276,17 +308,27 @@ public class WorkshopReviewSystemTest {
         /*  Test ID: 122
             Authored: Oscar Mason, Tim Cargan
          */
-        String input = "R\n2\n0\n";
+
+        //Set up
+        WorkshopReviewSystem.remove_test_data();
+        WorkshopReviewSystem.add_unreviwed_paper_3();
+
+        String input = "R\n3\n0\nReview\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
         WorkshopReviewSystem.main(new String[]{""});
         String output = optionText + "Which paper do you want to add a review to?" + System.lineSeparator() +
                 "What score do you give it?" + System.lineSeparator() +
+                "Please enter your review:" + System.lineSeparator() +
                 //TODO: Review Error
                 "[Error, Bad Score]" + System.lineSeparator() +
                 optionText;
         assertEquals(output, outContent.toString());
+
+        //Tear Down
+        WorkshopReviewSystem.remove_test_data();
+        WorkshopReviewSystem.add_test_data();
     }
 
     @Test
@@ -295,7 +337,11 @@ public class WorkshopReviewSystemTest {
             Authored: Oscar Mason, Tim Cargan
          */
 
-        String input = "R\n2\n3\n\n";
+        //Set up
+        WorkshopReviewSystem.remove_test_data();
+        WorkshopReviewSystem.add_unreviwed_paper_3();
+
+        String input = "R\n3\n3\n\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
@@ -307,6 +353,10 @@ public class WorkshopReviewSystemTest {
                 "[Error must enter review text]" + System.lineSeparator() +
                 optionText;
         assertEquals(output, outContent.toString());
+
+        //Tear Down
+        WorkshopReviewSystem.remove_test_data();
+        WorkshopReviewSystem.add_test_data();
     }
 
     @Test
@@ -315,7 +365,11 @@ public class WorkshopReviewSystemTest {
             Authored: Oscar Mason, Tim Cargan
          */
 
-        String input = "R\n2\n3\n" + TEXT_NONASCII + "\n";
+        //Set up
+        WorkshopReviewSystem.remove_test_data();
+        WorkshopReviewSystem.add_unreviwed_paper_3();
+
+        String input = "R\n3\n3\n" + TEXT_NONASCII + "\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
@@ -323,9 +377,13 @@ public class WorkshopReviewSystemTest {
         String output = optionText + "Which paper do you want to add a review to?" + System.lineSeparator() +
                 "What score do you give it?" + System.lineSeparator() +
                 "Please enter your review:" + System.lineSeparator() +
-                "[Review added to Paper 2]" + System.lineSeparator() +
+                "[Review added to Paper 3]" + System.lineSeparator() +
                 optionText;
         assertEquals(output, outContent.toString());
+
+        //Tear Down
+        WorkshopReviewSystem.remove_test_data();
+        WorkshopReviewSystem.add_test_data();
     }
 
     @Test
@@ -373,6 +431,7 @@ public class WorkshopReviewSystemTest {
         assertEquals(output, outContent.toString());
 
         //Tear Down
+        WorkshopReviewSystem.remove_test_data();
         WorkshopReviewSystem.add_test_data();
     }
 
