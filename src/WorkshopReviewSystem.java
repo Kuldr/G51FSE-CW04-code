@@ -49,7 +49,7 @@ public class WorkshopReviewSystem {
 		System.out.println("[Paper added]");
 	}
 	
-	private static void AddReview(Scanner in) throws WorkshopPaperExcessReviewException {
+	private static void AddReview(Scanner in) throws WorkshopPaperExcessReviewException, WorkshopReviewInvalidScore {
 		System.out.println("Which paper do you want to add a review to?");
 		int x = in.nextInt();
 		System.out.println("What score do you give it?");
@@ -80,7 +80,7 @@ public class WorkshopReviewSystem {
 
 	//Test code
 	//Bug Fix: 132; Moved test code out of main Tim Cargan
-	public void add_test_data() throws WorkshopPaperEmptyTitleException, WorkshopPaperExcessReviewException{
+	public void add_test_data() throws WorkshopPaperEmptyTitleException, WorkshopPaperExcessReviewException, WorkshopReviewInvalidScore{
 		//Test code, shouldnt not be in main
 		WorkshopPaper p1 = new WorkshopPaper("Paper 1 is great");
 		p1.addReview(new WorkshopReview(4,"This paper is pretty good."));

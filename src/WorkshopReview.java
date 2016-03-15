@@ -1,4 +1,4 @@
-
+import Exceptions.WorkshopReviewInvalidScore;
 
 public class WorkshopReview {
 	private int RScore;
@@ -7,13 +7,14 @@ public class WorkshopReview {
 	
 	public WorkshopReview() {
 		RScore = 1; // Changed default score to 1 : Benjamin Charlton
-		RReview = "No Review";
+		RReview = "";
 	}
 	
-	public WorkshopReview(int rScore, String rReview) {
+	public WorkshopReview(int rScore, String rReview) throws WorkshopReviewInvalidScore {
 		if( rScore < 1 || rScore > 5)
 		{
 			rScore = 1;
+			throw new WorkshopReviewInvalidScore();
 		} // Added check for out of bounds Score : Benjamin Charlton
 		RScore = rScore;
 		RReview = rReview;
@@ -21,10 +22,11 @@ public class WorkshopReview {
 	public int getRScore() {
 		return RScore;
 	}
-	public void setRScore(int rScore) {
+	public void setRScore(int rScore) throws WorkshopReviewInvalidScore {
 		if( rScore < 1 || rScore > 5)
 		{
 			rScore = 1;
+			throw new WorkshopReviewInvalidScore();
 		} // Added check for out of bounds Score : Benjamin Charlton
 		RScore = rScore;
 	}
@@ -37,7 +39,7 @@ public class WorkshopReview {
 
 	@Override
 	public String toString() {
-		return "Score = " + ROutputs[RScore-1] + "\n Review: " + RReview + "\n"; // Changed ROutputs to index the array correctly : Benjamin Charlton
+		return "Score = " + ROutputs[RScore-1] + "\nReview: " + RReview + "\n"; // Changed ROutputs to index the array correctly : Benjamin Charlton
 	}
 	
 	

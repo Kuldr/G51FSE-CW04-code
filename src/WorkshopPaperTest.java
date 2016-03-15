@@ -1,6 +1,7 @@
 import Exceptions.WorkshopPaperEmptyTitleException;
 import Exceptions.WorkshopPaperExcessReviewException;
 import Exceptions.WorkshopPaperNoReviewsYetException;
+import Exceptions.WorkshopReviewInvalidScore;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -79,7 +80,7 @@ public class WorkshopPaperTest {
 
 
     @Test
-    public void addReview9() throws WorkshopPaperEmptyTitleException, WorkshopPaperExcessReviewException {
+    public void addReview9() throws WorkshopPaperEmptyTitleException, WorkshopPaperExcessReviewException, WorkshopReviewInvalidScore {
         /*  Test ID: 9
             Authored: Oscar Mason, Benjamin Charlton, Jonathan Dilks
          */
@@ -96,7 +97,7 @@ public class WorkshopPaperTest {
     }
 
     @Test(expected = WorkshopPaperExcessReviewException.class)
-    public void addReview10() throws WorkshopPaperEmptyTitleException, WorkshopPaperExcessReviewException {
+    public void addReview10() throws WorkshopPaperEmptyTitleException, WorkshopPaperExcessReviewException, WorkshopReviewInvalidScore {
         /*  Test ID: 10
             Authored: Oscar Mason, Jonathan Dilks
          */
@@ -129,7 +130,7 @@ public class WorkshopPaperTest {
     }
 
     @Test
-    public void toStringTest13() throws WorkshopPaperEmptyTitleException, WorkshopPaperExcessReviewException {
+    public void toStringTest13() throws WorkshopPaperEmptyTitleException, WorkshopPaperExcessReviewException, WorkshopReviewInvalidScore {
         /*  Test ID: 13
             Authored: Oscar Mason, Benjamin Charlton
          */
@@ -158,7 +159,7 @@ public class WorkshopPaperTest {
     }
 
     @Test
-    public void toStringTest15() throws WorkshopPaperEmptyTitleException, WorkshopPaperExcessReviewException {
+    public void toStringTest15() throws WorkshopPaperEmptyTitleException, WorkshopPaperExcessReviewException, WorkshopReviewInvalidScore {
         /*  Test ID: 15
             Authored: Oscar Mason, Jonathan Dilks
          */
