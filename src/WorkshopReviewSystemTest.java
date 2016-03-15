@@ -278,6 +278,24 @@ public class WorkshopReviewSystemTest {
         assertEquals(output, outContent.toString());
     }
 
+    @Test
+    public void workshopPaperSystemMain120() throws WorkshopPaperEmptyTitleException, WorkshopPaperExcessReviewException{
+        /*  Test ID: 120
+            Authored: Oscar Mason, Tim Cargan
+         */
+        WorkshopReviewSystem workshopReviewSystem = new WorkshopReviewSystem();
+        workshopReviewSystem.add_test_data();
+        String input = "R\n5\n";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+
+        workshopReviewSystem.main(new String[]{""});
+        String output = optionText + "Which paper do you want to add a review to?" + System.lineSeparator() +
+                "[Error, No such Paper]" + System.lineSeparator() +
+                optionText;
+        assertEquals(output, outContent.toString());
+    }
+
 
 
 }

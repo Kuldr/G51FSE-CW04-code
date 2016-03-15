@@ -7,7 +7,7 @@ import java.util.*;
 
 public class WorkshopReviewSystem {
 
-	private static ArrayList<WorkshopPaper> AllPapers = new ArrayList<WorkshopPaper>();
+	private static ArrayList<WorkshopPaper> AllPapers = new ArrayList<WorkshopPaper>(); //Bug Fix: 133, assignment need to be moved out of main here to make test run; Tim Cargan
 
 	public static void main(String[] args) throws WorkshopPaperEmptyTitleException, WorkshopPaperExcessReviewException /*TODO : Handle the exceptions properly*/ {
 		// TODO Auto-generated method stub
@@ -79,6 +79,7 @@ public class WorkshopReviewSystem {
 	}
 
 	//Test code
+	//Bug Fix: 132; Moved test code out of main Tim Cargan
 	public void add_test_data() throws WorkshopPaperEmptyTitleException, WorkshopPaperExcessReviewException{
 		//Test code, shouldnt not be in main
 		WorkshopPaper p1 = new WorkshopPaper("Paper 1 is great");
