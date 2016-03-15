@@ -139,9 +139,9 @@ public class WorkshopPaperTest {
         }
 
         String expectedOutput = "Average Score = ***\n\n"
-        + "Review 1:\nScore = **\n Review: Test\n\n"
-        + "Review 2:\nScore = ***\n Review: Test\n\n"
-        + "Review 3:\nScore = ****\n Review: Test\n\n";
+        + "Review 1:\nScore = **\nReview: Test\n\n"
+        + "Review 2:\nScore = ***\nReview: Test\n\n"
+        + "Review 3:\nScore = ****\nReview: Test\n\n";
 
         assertEquals(expectedOutput, workshopPaper.toString());
     }
@@ -168,8 +168,8 @@ public class WorkshopPaperTest {
         }
 
         String expectedOutput = "Average Score = **\n\n"
-                + "Review 1:\nScore = **\n Review: Any text\n\n"
-                + "Review 2:\nScore = **\n Review: Any text\n\n";
+                + "Review 1:\nScore = **\nReview: Any text\n\n"
+                + "Review 2:\nScore = **\nReview: Any text\n\n";
 
         assertEquals(expectedOutput, workshopPaper.toString());
     }
