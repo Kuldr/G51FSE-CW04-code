@@ -144,7 +144,7 @@ public class WorkshopReviewTest {
             ID: 54
             Authored: Tim Cargan, Jon Dilks
          */
-        workshopReview = new WorkshopReview(INVALID_LOW_SCORE, TEXT);
+        workshopReview = new WorkshopReview(INVALID_NEG_SCORE, TEXT);
     }
 
     @Test

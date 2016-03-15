@@ -22,6 +22,10 @@ public class WorkshopReview {
 		return RScore;
 	}
 	public void setRScore(int rScore) {
+		if( rScore < 1 || rScore > 5)
+		{
+			rScore = 1;
+		} // Added check for out of bounds Score : Benjamin Charlton
 		RScore = rScore;
 	}
 	public String getRReview() {
