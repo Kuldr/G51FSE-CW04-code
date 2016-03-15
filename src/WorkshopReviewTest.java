@@ -143,26 +143,11 @@ public class WorkshopReviewTest {
     }
 
     @Test
-    //TODO: Unicode string tests
-    public void  testWorkshopReviewConstructor55() throws Exception {
-        WorkshopReview workshopReview;
-        /*
-            ID: 55
-            Authored: Tim Cargan, Jon Dilks
-         */
-
-        workshopReview = new WorkshopReview(VALID_MID_SCORE, TEXT);
-
-
-    }
-
-    @Test
     public void  testWorkshopReviewConstructor56() throws Exception {
         /*
             ID: 56
             Authored: Tim Cargan, Jon Dilks
          */
-
         URL url = new URL("https://raw.githubusercontent.com/minimaxir/big-list-of-naughty-strings/master/blns.txt");
         Scanner s = new Scanner(url.openStream());
 
@@ -242,16 +227,6 @@ public class WorkshopReviewTest {
         workshopReview = new WorkshopReview();
         workshopReview.setRReview(TEXT_NONASCII);
         assertEquals(TEXT_NONASCII, workshopReview.getRReview());
-    }
-
-    @Test
-    //TODO: What is an oversize string?
-    public void testSetRReview67() throws Exception {
-        WorkshopReview workshopReview;
-        /*
-            ID: 67
-            Authored: Tim Cargan, Jon Dilks
-         */
     }
 
     @Test
