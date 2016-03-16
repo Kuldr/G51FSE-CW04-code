@@ -7,10 +7,7 @@ public class WorkshopReviewSystem {
 
 	private static ArrayList<WorkshopPaper> AllPapers = new ArrayList<WorkshopPaper>(); //Bug Fix: 133, assignment need to be moved out of main here to make test run; Tim Cargan
 
-	public static void main(String[] args) /*TODO : Handle the exceptions properly*/ {
-		// TODO Auto-generated method stub
-
-		
+	public static void main(String[] args) {
 		System.out.println("What do you want to do?\n O = Overview, P = Add Paper, R = Add Review, [num] = Detail of that paper, X = exit");
 		Scanner in = new Scanner(System.in);
 		while (in.hasNextLine()){
@@ -47,7 +44,6 @@ public class WorkshopReviewSystem {
 			System.out.println("What do you want to do?\n O = Overview, P = Add Paper, R = Add Review, [num] = Detail of that paper, X = exit");
 		}
 		in.close();
-		
 	}
 	
 	private static void AddPaper(Scanner in) {
@@ -99,8 +95,6 @@ public class WorkshopReviewSystem {
 			return;
 		}
 		System.out.println("[Review added to Paper " + x + "]");
-
-
 	}
 	
 	private static void PrintPaperOverview(){

@@ -28,9 +28,6 @@ public class WorkshopReviewTest {
             "2014年2月27日（木）はサーバメンテンナンスのため下記の時間帯にサービスが停止する時" +
             "間帯があります。ご不便をお掛け致しますが、ご理解賜りますようお願い申し上げます";
 
-    //TODO: Update the excel sheet with the tests
-
-
     @Test
     public void testGetRScore57() throws Exception {
         WorkshopReview workshopReview;
