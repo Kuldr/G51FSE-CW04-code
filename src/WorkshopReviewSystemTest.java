@@ -119,7 +119,7 @@ public class WorkshopReviewSystemTest {
         String output = optionText + "Goodbye!" + System.lineSeparator();
         assertEquals(output, outContent.toString());
     }
-
+    
     @Test
     public void workshopPaperSystemMain103() {
         /*  Test ID: 103

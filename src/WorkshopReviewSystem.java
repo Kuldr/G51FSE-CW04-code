@@ -14,8 +14,8 @@ public class WorkshopReviewSystem {
 		System.out.println("What do you want to do?\n O = Overview, P = Add Paper, R = Add Review, [num] = Detail of that paper, X = exit");
 		Scanner in = new Scanner(System.in);
 		while (in.hasNextLine()){
-			String s = in.nextLine(); //Bug Fix: 131; Tim Cargan
-			s = s.toUpperCase(); //Bug Fix: 106; Can now deal lowercase letters
+			String s = in.nextLine(); //Bug Fix: 131; Tim Cargan, Oscar Mason
+			s = s.toUpperCase(); //Bug Fix: 106; Can now deal lowercase letters: Tim Cargan, Oscar Mason
 			try{
 				if (s.equals("O")) {
 					PrintPaperOverview();
@@ -27,7 +27,7 @@ public class WorkshopReviewSystem {
 					System.out.println("Goodbye!");
 					break;
 				} else {
-					//Bug Fix 103 - now runs the '#id' command or outputs apropreate message if command unknow
+					//Bug Fix 103 - now runs the '#id' command or outputs appropriate message if command unknown: Tim Cargan, Oscar Mason
 					boolean isCommandUnknow = true;
 					try {
 						if (Integer.parseInt(s) > 0) {
@@ -52,9 +52,9 @@ public class WorkshopReviewSystem {
 	
 	private static void AddPaper(Scanner in) {
 		System.out.println("What is the title of the paper?");
-		//in.nextLine(); // - Bug Fix: 135; Tim Cargan
+		//in.nextLine(); // - Bug Fix: 135; Tim Cargan, Oscar Mason
 		String title = in.nextLine();
-		//Bug Fix: 108, now shows a nice error message to user; Tim Cargan
+		//Bug Fix: 108, now shows a nice error message to user; Tim Cargan, Oscar Mason
 		try {
 			AllPapers.add(new WorkshopPaper(title));
 		}catch (WorkshopPaperEmptyTitleException e){
@@ -71,15 +71,15 @@ public class WorkshopReviewSystem {
 		int score = in.nextInt();
 
 		System.out.println("Please enter your review:");
-		in.nextLine(); //to remove read-in bug
+		in.nextLine();
 		String review = in.nextLine();
 
-		//Bug Fix: 123, makes sure users enter a view and shows appriate message
+		//Bug Fix: 123, makes sure users enter a view and shows appropriate message: Tim Cargan, Oscar Mason
 		if(review.equals("")){
 			System.out.println("[Error must enter review text]");
 			return;
 		}
-		//Bug Fix: 120; Now outputs better error message for invalid paper id - Tim Cargan
+		//Bug Fix: 120; Now outputs better error message for invalid paper id: Tim Cargan, Oscar Mason
 		WorkshopPaper wp = null;
 		try {
 			wp = AllPapers.get(x - 1);
@@ -88,7 +88,7 @@ public class WorkshopReviewSystem {
 			return;
 		}
 
-		//Bug Fix 122: Now outputs better error message for the user - Tim Cargan
+		//Bug Fix 122: Now outputs better error message for the user: Tim Cargan, Oscar Mason
 		try {
 			wp.addReview(new WorkshopReview(score, review));
 		}catch (WorkshopReviewInvalidScore e ){
@@ -105,7 +105,7 @@ public class WorkshopReviewSystem {
 	
 	private static void PrintPaperOverview(){
 		if (AllPapers.size() == 0){
-			System.out.println("[There are no papers]");
+			System.out.println("[There are no papers]");// Bug Fix 127: Prints error message for the user: Tim Cargan, Oscar Mason
 		}
 		for (int x = 0; x < AllPapers.size(); x++) {
 			WorkshopPaper wp = AllPapers.get(x);
@@ -121,7 +121,7 @@ public class WorkshopReviewSystem {
 		//Bug Fix: 131 Prints a nice error message for the user
 		try {
 			WorkshopPaper wp = AllPapers.get(paperID);
-			System.out.println("Paper " + (paperID+1) + " - " + wp.toString()); //Bug Fix: 134, prints approrate lin breaks in right place: Tim Cargan
+			System.out.println("Paper " + (paperID+1) + " - " + wp.toString()); //Bug Fix: 134, prints appropriate lin breaks in right place: Tim Cargan, Oscar Mason
 		}catch (IndexOutOfBoundsException e) {
 			System.out.println("[No paper with given ID]");
 		}
@@ -129,7 +129,7 @@ public class WorkshopReviewSystem {
 	}
 
 	//Test code
-	//Bug Fix: 132; Moved test code out of main Tim Cargan
+	//Bug Fix: 132; Moved test code out of main Tim Cargan, Oscar Mason
 	public static void add_test_data() {
 		try {
 			//Test code, shouldn't not be in main
@@ -158,7 +158,7 @@ public class WorkshopReviewSystem {
 
 	public static void add_unreviwed_paper_3() {
 		try {
-			//Test code, shouldn't not be in main
+			//Test code, shouldn't not be in main:
 			WorkshopPaper p1 = new WorkshopPaper("Paper 1 is great");
 			p1.addReview(new WorkshopReview(4, "This paper is pretty good."));
 			p1.addReview(new WorkshopReview(3, "This paper is good for the workshop."));
@@ -177,5 +177,4 @@ public class WorkshopReviewSystem {
 			AllPapers.add(p3);
 		}catch (Exception e){}
 	}
-
 }
