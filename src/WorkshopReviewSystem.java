@@ -28,16 +28,15 @@ public class WorkshopReviewSystem {
 					break;
 				} else {
 					//Bug Fix 103 - now runs the '#id' command or outputs apropreate message if command unknow
-					boolean isCommandANumber = true;
+					boolean isCommandUnknow = true;
 					try {
 						if (Integer.parseInt(s) > 0) {
 							PrintAPaper(Integer.parseInt(s) - 1);
+							isCommandUnknow = false;
 						}
-					}catch (Exception e){
-						isCommandANumber = false;
-					}
-
-					if (!isCommandANumber){
+					}catch (Exception e){}
+					
+					if (isCommandUnknow){
 						System.out.println("Command not recognised");
 					}
 
