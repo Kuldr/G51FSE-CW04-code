@@ -158,11 +158,10 @@ public class WorkshopReviewTest {
 
         while (s.hasNext())
         {
-            String currentTestString = s.next();
+            String currentTestString = s.nextLine();
             WorkshopReview workshopReview = new WorkshopReview(VALID_MID_SCORE, currentTestString);
             assertEquals(workshopReview.getRReview(), currentTestString);
         }
-
     }
 
     @Test
