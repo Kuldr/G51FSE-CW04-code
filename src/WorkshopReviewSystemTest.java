@@ -459,5 +459,29 @@ public class WorkshopReviewSystemTest {
         WorkshopReviewSystem.add_test_data();
     }
 
+    @Test
+    public void workshopPaperSystemMain132() {
+        /*  Test ID: 132
+            Authored: Oscar Mason, Tim Cargan
+         */
+
+        //SetUp
+        WorkshopReviewSystem.remove_test_data();
+
+        String input = "-51\n";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+
+        WorkshopReviewSystem.main(new String[]{""});
+        String output = optionText +
+                //TODO: Review Error
+                "Command not recognised" + System.lineSeparator() +
+                optionText;
+        assertEquals(output, outContent.toString());
+
+        //Tear Down
+        WorkshopReviewSystem.add_test_data();
+    }
+
 
 }
