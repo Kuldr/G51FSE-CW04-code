@@ -92,7 +92,7 @@ public class WorkshopPaperTest {
         WorkshopReview[] workshopReviews = workshopPaper.getPReviews();
         assertEquals(workshopReviews[0], workshopReview);
 
-        assertEquals(workshopReview.getRReview(), testText);
+        assertEquals(workshopReview.getrReview(), testText);
     }
 
     @Test(expected = WorkshopPaperExcessReviewException.class)

@@ -1,45 +1,41 @@
 import Exceptions.WorkshopReviewInvalidScore;
 
 public class WorkshopReview {
-	private int RScore;
-	private String RReview;
-	private static String[] ROutputs = new String[]{"*","**","***","****","*****"};
+	private int rScore;
+	private String rReview;
+	private static String[] rOutputs = new String[]{"*","**","***","****","*****"};
 	
 	public WorkshopReview() {
-		RScore = 1; // Changed default score to 1 : Benjamin Charlton
-		RReview = "";
+		rScore = 1; // Changed default score to 1 : Benjamin Charlton
+		rReview = "";
 	}
 	
 	public WorkshopReview(int rScore, String rReview) throws WorkshopReviewInvalidScore {
-		if( rScore < 1 || rScore > 5)
-		{
-			rScore = 1;
+		if( rScore < 1 || rScore > 5) {
 			throw new WorkshopReviewInvalidScore();
 		} // Added check for out of bounds Score : Benjamin Charlton
-		RScore = rScore;
-		RReview = rReview;
+		this.rScore = rScore;
+		this.rReview = rReview;
 	}
-	public int getRScore() {
-		return RScore;
+	public int getrScore() {
+		return rScore;
 	}
-	public void setRScore(int rScore) throws WorkshopReviewInvalidScore {
-		if( rScore < 1 || rScore > 5)
-		{
-			rScore = 1;
+	public void setrScore(int rScore) throws WorkshopReviewInvalidScore {
+		if( rScore < 1 || rScore > 5) {
 			throw new WorkshopReviewInvalidScore();
 		} // Added check for out of bounds Score : Benjamin Charlton
-		RScore = rScore;
+		this.rScore = rScore;
 	}
-	public String getRReview() {
-		return RReview;
+	public String getrReview() {
+		return rReview;
 	}
-	public void setRReview(String rReview) {
-		RReview = rReview;
+	public void setrReview(String rReview) {
+		this.rReview = rReview;
 	}
 
 	@Override
 	public String toString() {
-		return "Score = " + ROutputs[RScore-1] + "\nReview: " + RReview + "\n"; // Changed ROutputs to index the array correctly : Benjamin Charlton
+		return "Score = " + rOutputs[rScore -1] + "\nReview: " + rReview + "\n"; // Changed rOutputs to index the array correctly : Benjamin Charlton
 	}
 	
 	

@@ -60,7 +60,7 @@ public class WorkshopPaper {
 		for(int i = 0; i < PReviews.length; i++)
 		{
 			if (PReviews[i] != null) {
-				AvgScore += PReviews[i].getRScore();
+				AvgScore += PReviews[i].getrScore();
 				numReviews++;
 			}
 		} // Changed if statements to for loop for easy scalability : Benjamin Charlton
