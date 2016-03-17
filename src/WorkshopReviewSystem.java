@@ -5,7 +5,7 @@ import java.util.*;
 
 public class WorkshopReviewSystem {
 
-	private static ArrayList<WorkshopPaper> AllPapers = new ArrayList<WorkshopPaper>(); //Bug Fix: 133, assignment need to be moved out of main here to make test run; Tim Cargan
+	private static ArrayList<WorkshopPaper> allPapers = new ArrayList<WorkshopPaper>(); //Bug Fix: 133, assignment need to be moved out of main here to make test run; Tim Cargan
 
 	public static void main(String[] args) {
 		System.out.println("What do you want to do?\n O = Overview, P = Add Paper, R = Add Review, [num] = Detail of that paper, X = exit");
@@ -52,7 +52,7 @@ public class WorkshopReviewSystem {
 		String title = in.nextLine();
 		//Bug Fix: 108, now shows a nice error message to user; Tim Cargan, Oscar Mason
 		try {
-			AllPapers.add(new WorkshopPaper(title));
+			allPapers.add(new WorkshopPaper(title));
 		}catch (WorkshopPaperEmptyTitleException e){
 			System.out.println("[Error No Title, Paper not added]");
 			return;
@@ -78,7 +78,7 @@ public class WorkshopReviewSystem {
 		//Bug Fix: 120; Now outputs better error message for invalid paper id: Tim Cargan, Oscar Mason
 		WorkshopPaper wp = null;
 		try {
-			wp = AllPapers.get(x - 1);
+			wp = allPapers.get(x - 1);
 		}catch(IndexOutOfBoundsException e){
 			System.out.println("[Error, no such Paper]");
 			return;
@@ -98,11 +98,11 @@ public class WorkshopReviewSystem {
 	}
 	
 	private static void PrintPaperOverview(){
-		if (AllPapers.size() == 0){
+		if (allPapers.size() == 0){
 			System.out.println("[There are no papers]");// Bug Fix 127: Prints error message for the user: Tim Cargan, Oscar Mason
 		}
-		for (int x = 0; x < AllPapers.size(); x++) {
-			WorkshopPaper wp = AllPapers.get(x);
+		for (int x = 0; x < allPapers.size(); x++) {
+			WorkshopPaper wp = allPapers.get(x);
 			try{
 				System.out.println((x+1) + ") " + wp.getPTitle()+ " - " + wp.getAverageScore());
 			}catch (WorkshopPaperNoReviewsYetException e){
@@ -114,7 +114,7 @@ public class WorkshopReviewSystem {
 	private static void PrintAPaper(int paperID) {
 		//Bug Fix: 131 Prints a nice error message for the user
 		try {
-			WorkshopPaper wp = AllPapers.get(paperID);
+			WorkshopPaper wp = allPapers.get(paperID);
 			System.out.println("Paper " + (paperID+1) + " - " + wp.toString()); //Bug Fix: 134, prints appropriate lin breaks in right place: Tim Cargan, Oscar Mason
 		}catch (IndexOutOfBoundsException e) {
 			System.out.println("[No paper with given ID]");
@@ -132,14 +132,14 @@ public class WorkshopReviewSystem {
 			p1.addReview(new WorkshopReview(3, "This paper is good for the workshop."));
 			p1.addReview(new WorkshopReview(2, "This paper is pretty mediocre."));
 
-			AllPapers.add(p1);
+			allPapers.add(p1);
 
 			WorkshopPaper p2 = new WorkshopPaper("Paper 2 is my best work");
 			p2.addReview(new WorkshopReview(2, "This can hardly be his best work"));
 			p2.addReview(new WorkshopReview(1, "Ive read better articles in Hello Magazine"));
 			p2.addReview(new WorkshopReview(1, "So painful to read."));
 
-			AllPapers.add(p2);
+			allPapers.add(p2);
 
 		}catch (Exception e){}
 		//PrintPaperOverview();
@@ -147,7 +147,7 @@ public class WorkshopReviewSystem {
 		//PrintAPaper(1);
 	}
 	public static void remove_test_data(){
-		AllPapers.clear();
+		allPapers.clear();
 	}
 
 	public static void add_unreviwed_paper_3() {
@@ -158,17 +158,17 @@ public class WorkshopReviewSystem {
 			p1.addReview(new WorkshopReview(3, "This paper is good for the workshop."));
 			p1.addReview(new WorkshopReview(2, "This paper is pretty mediocre."));
 
-			AllPapers.add(p1);
+			allPapers.add(p1);
 
 			WorkshopPaper p2 = new WorkshopPaper("Paper 2 is my best work");
 			p2.addReview(new WorkshopReview(2, "This can hardly be his best work"));
 			p2.addReview(new WorkshopReview(1, "Ive read better articles in Hello Magazine"));
 			p2.addReview(new WorkshopReview(1, "So painful to read."));
 
-			AllPapers.add(p2);
+			allPapers.add(p2);
 			WorkshopPaper p3 = new WorkshopPaper("Paper 3 is my best work");
 			p3.addReview(new WorkshopReview(3, "This can hardly be his best work, its meh"));
-			AllPapers.add(p3);
+			allPapers.add(p3);
 		}catch (Exception e){}
 	}
 }
