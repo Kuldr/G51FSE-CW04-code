@@ -44,6 +44,10 @@ public class WorkshopReviewSystemTest {
             Authored: Oscar Mason, Tim Cargan
          */
 
+        //Set up
+        WorkshopReviewSystem.remove_test_data();
+        WorkshopReviewSystem.add_test_data();
+
         String input = "O";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
@@ -56,6 +60,9 @@ public class WorkshopReviewSystemTest {
                 "2) Paper 2 is my best work - " + averageScore_2 + System.lineSeparator() +
                 optionText;
         assertEquals(output, outContent.toString());
+
+        //TearDown
+        WorkshopReviewSystem.remove_test_data();
     }
 
     @Test
@@ -63,6 +70,9 @@ public class WorkshopReviewSystemTest {
         /*  Test ID: 100b
             Authored: Oscar Mason, Tim Cargan
          */
+
+        //Set up
+        WorkshopReviewSystem.add_test_data();
 
         String input = "P\nGood paper\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());
@@ -76,7 +86,6 @@ public class WorkshopReviewSystemTest {
 
         //TearDown
         WorkshopReviewSystem.remove_test_data();
-        WorkshopReviewSystem.add_test_data();
     }
 
     @Test
@@ -103,7 +112,6 @@ public class WorkshopReviewSystemTest {
 
         //TearDown
         WorkshopReviewSystem.remove_test_data();
-        WorkshopReviewSystem.add_test_data();
     }
 
     @Test
@@ -111,6 +119,10 @@ public class WorkshopReviewSystemTest {
         /*  Test ID: 100d
             Authored: Oscar Mason, Tim Cargan
          */
+
+        //Set up
+        WorkshopReviewSystem.add_test_data();
+
         String input = "X\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
@@ -118,6 +130,9 @@ public class WorkshopReviewSystemTest {
         WorkshopReviewSystem.main(new String[]{""});
         String output = optionText + "Goodbye!" + System.lineSeparator();
         assertEquals(output, outContent.toString());
+
+        //TearDown
+        WorkshopReviewSystem.remove_test_data();
     }
     
     @Test
@@ -125,6 +140,9 @@ public class WorkshopReviewSystemTest {
         /*  Test ID: 103
             Authored: Oscar Mason, Tim Cargan
          */
+
+        //Set up
+        WorkshopReviewSystem.add_test_data();
 
         String input = "Unknown\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());
@@ -134,6 +152,9 @@ public class WorkshopReviewSystemTest {
         String output = optionText + "[Command not recognised]" + System.lineSeparator()
                 + optionText;
         assertEquals(output, outContent.toString());
+
+        //TearDown
+        WorkshopReviewSystem.remove_test_data();
     }
 
 
@@ -142,6 +163,7 @@ public class WorkshopReviewSystemTest {
         /*  Test ID: 106a
             Authored: Oscar Mason, Tim Cargan
          */
+
         //Set up
         WorkshopReviewSystem.remove_test_data();
         WorkshopReviewSystem.add_test_data();
@@ -159,9 +181,8 @@ public class WorkshopReviewSystemTest {
                 optionText;
         assertEquals(output, outContent.toString());
 
-        //Tear down
+        //TearDown
         WorkshopReviewSystem.remove_test_data();
-        WorkshopReviewSystem.add_test_data();
     }
 
     @Test
@@ -169,8 +190,8 @@ public class WorkshopReviewSystemTest {
         /*  Test ID: 106b
             Authored: Oscar Mason, Tim Cargan
          */
+
         //Set up
-        WorkshopReviewSystem.remove_test_data();
         WorkshopReviewSystem.add_test_data();
 
         String input = "p\nGood paper\n";
@@ -183,9 +204,8 @@ public class WorkshopReviewSystemTest {
                 optionText;
         assertEquals(output, outContent.toString() );
 
-        //Set up
+        //TearDown
         WorkshopReviewSystem.remove_test_data();
-        WorkshopReviewSystem.add_test_data();
     }
 
     @Test
@@ -212,7 +232,6 @@ public class WorkshopReviewSystemTest {
 
         //TearDown
         WorkshopReviewSystem.remove_test_data();
-        WorkshopReviewSystem.add_test_data();
     }
 
     @Test
@@ -222,7 +241,6 @@ public class WorkshopReviewSystemTest {
          */
 
         //Set up
-        WorkshopReviewSystem.remove_test_data();
         WorkshopReviewSystem.add_test_data();
 
         String input = "x\n";
@@ -233,9 +251,8 @@ public class WorkshopReviewSystemTest {
         String output = optionText + "Goodbye!" + System.lineSeparator();
         assertEquals(output, outContent.toString());
 
-        //Tear Down
+        //TearDown
         WorkshopReviewSystem.remove_test_data();
-        WorkshopReviewSystem.add_test_data();
     }
 
     @Test
@@ -243,6 +260,9 @@ public class WorkshopReviewSystemTest {
         /*  Test ID: 108
             Authored: Oscar Mason, Tim Cargan
          */
+
+        //Set up
+        WorkshopReviewSystem.add_test_data();
 
         String input = "P\n\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());
@@ -253,12 +273,18 @@ public class WorkshopReviewSystemTest {
                 "[Error No Title, Paper not added]" + System.lineSeparator() +
                 optionText;
         assertEquals(output, outContent.toString() );
+
+        //TearDown
+        WorkshopReviewSystem.remove_test_data();
     }
     @Test
     public void workshopPaperSystemMain109() {
         /*  Test ID: 108
             Authored: Oscar Mason, Tim Cargan
          */
+
+        //Set up
+        WorkshopReviewSystem.add_test_data();
 
         String input = "P\n" + TEXT_NONASCII + "\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());
@@ -269,6 +295,9 @@ public class WorkshopReviewSystemTest {
                 "[Paper added]" + System.lineSeparator() +
                 optionText;
         assertEquals(output, outContent.toString() );
+
+        //TearDown
+        WorkshopReviewSystem.remove_test_data();
     }
 
 
@@ -279,7 +308,6 @@ public class WorkshopReviewSystemTest {
          */
 
         //Set up
-        WorkshopReviewSystem.remove_test_data();
         WorkshopReviewSystem.add_test_data();
 
         String input = "R\n5\n3\nTest\n";
@@ -294,9 +322,8 @@ public class WorkshopReviewSystemTest {
                 optionText;
         assertEquals(output, outContent.toString());
 
-        //Set up
+        //TearDown
         WorkshopReviewSystem.remove_test_data();
-        WorkshopReviewSystem.add_test_data();
     }
 
     @Test
@@ -306,7 +333,6 @@ public class WorkshopReviewSystemTest {
          */
 
         //Set up
-        WorkshopReviewSystem.remove_test_data();
         WorkshopReviewSystem.add_unreviwed_paper_3();
 
         String input = "R\n3\n0\nReview\n";
@@ -321,9 +347,8 @@ public class WorkshopReviewSystemTest {
                 optionText;
         assertEquals(output, outContent.toString());
 
-        //Tear Down
+        //TearDown
         WorkshopReviewSystem.remove_test_data();
-        WorkshopReviewSystem.add_test_data();
     }
 
     @Test
@@ -333,7 +358,6 @@ public class WorkshopReviewSystemTest {
          */
 
         //Set up
-        WorkshopReviewSystem.remove_test_data();
         WorkshopReviewSystem.add_unreviwed_paper_3();
 
         String input = "R\n3\n3\n\n";
@@ -348,9 +372,8 @@ public class WorkshopReviewSystemTest {
                 optionText;
         assertEquals(output, outContent.toString());
 
-        //Tear Down
+        //TearDown
         WorkshopReviewSystem.remove_test_data();
-        WorkshopReviewSystem.add_test_data();
     }
 
     @Test
@@ -375,9 +398,33 @@ public class WorkshopReviewSystemTest {
                 optionText;
         assertEquals(output, outContent.toString());
 
-        //Tear Down
+        //TearDown
         WorkshopReviewSystem.remove_test_data();
+    }
+
+    @Test
+    public void workshopPaperSystemMain125() {
+        /*  Test ID: 125
+            Authored: Benjamin Charlton, Tim Cargan
+         */
+
+        //Set up
         WorkshopReviewSystem.add_test_data();
+
+        String input = "R\n1\n3\n" + TEXT_LONG + "\n";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+
+        WorkshopReviewSystem.main(new String[]{""});
+        String output = optionText + "Which paper do you want to add a review to?" + System.lineSeparator() +
+                "What score do you give it?" + System.lineSeparator() +
+                "Please enter your review:" + System.lineSeparator() +
+                "[Error paper already has 3 reviews]" + System.lineSeparator() +
+                optionText;
+        assertEquals(output, outContent.toString());
+
+        //TearDown
+        WorkshopReviewSystem.remove_test_data();
     }
 
     @Test
@@ -398,8 +445,8 @@ public class WorkshopReviewSystemTest {
                 optionText;
         assertEquals(output, outContent.toString());
 
-        //Tear Down
-        WorkshopReviewSystem.add_test_data();
+        //TearDown
+        WorkshopReviewSystem.remove_test_data();
     }
 
     @Test
@@ -423,9 +470,8 @@ public class WorkshopReviewSystemTest {
                 optionText;
         assertEquals(output, outContent.toString());
 
-        //Tear Down
+        //TearDown
         WorkshopReviewSystem.remove_test_data();
-        WorkshopReviewSystem.add_test_data();
     }
 
     @Test
@@ -445,8 +491,8 @@ public class WorkshopReviewSystemTest {
         String output = optionText + "[No paper with given ID]" + System.lineSeparator() + optionText;
         assertEquals(output, outContent.toString());
 
-        //Tear Down
-        WorkshopReviewSystem.add_test_data();
+        //TearDown
+        WorkshopReviewSystem.remove_test_data();
     }
 
     @Test
@@ -466,8 +512,8 @@ public class WorkshopReviewSystemTest {
         String output = optionText + "[Command not recognised]" + System.lineSeparator() + optionText;
         assertEquals(output, outContent.toString());
 
-        //Tear Down
-        WorkshopReviewSystem.add_test_data();
+        //TearDown
+        WorkshopReviewSystem.remove_test_data();
     }
 
 
