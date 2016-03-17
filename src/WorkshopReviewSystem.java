@@ -104,7 +104,7 @@ public class WorkshopReviewSystem {
 		for (int x = 0; x < allPapers.size(); x++) {
 			WorkshopPaper wp = allPapers.get(x);
 			try{
-				System.out.println((x+1) + ") " + wp.getPTitle()+ " - " + wp.getAverageScore());
+				System.out.println((x+1) + ") " + wp.getpTitle()+ " - " + wp.getAverageScore());
 			}catch (WorkshopPaperNoReviewsYetException e){
 
 			}

@@ -3,9 +3,9 @@ import Exceptions.WorkshopPaperExcessReviewException;
 import Exceptions.WorkshopPaperNoReviewsYetException;
 
 public class WorkshopPaper {
-	private String PTitle;
-	private WorkshopReview[] PReviews;
-	private static String[] ROutputs = new String[]{"*","**","***","****","*****"};
+	private String pTitle;
+	private WorkshopReview[] pReviews;
+	private static String[] rOutputs = new String[]{"*","**","***","****","*****"};
 
 	public WorkshopPaper() throws WorkshopPaperEmptyTitleException {
 		this("New Paper");
@@ -16,35 +16,35 @@ public class WorkshopPaper {
 		if(pTitle.equals("")){
 			throw new WorkshopPaperEmptyTitleException();
 		} else {
-			PTitle = pTitle;
+			this.pTitle = pTitle;
 		} //Changed to catch scenarios when the title is empty : Oscar Mason, Benjamin Charlton
 
-		PReviews = new WorkshopReview[3];
-		for(int i = 0; i < PReviews.length; i++)
+		pReviews = new WorkshopReview[3];
+		for(int i = 0; i < pReviews.length; i++)
 		{
-			PReviews[i] = null;
+			pReviews[i] = null;
 		} // Changed to for loop for easy scalability : Benjamin Charlton
 	}
 
-	public String getPTitle() {
-		return PTitle;
+	public String getpTitle() {
+		return pTitle;
 	}
 
-	public void setPTitle(String pTitle) throws WorkshopPaperEmptyTitleException {
+	public void setpTitle(String pTitle) throws WorkshopPaperEmptyTitleException {
 		if(pTitle.equals("")){
 			throw new WorkshopPaperEmptyTitleException();
 		} // Added in the error checking : Oscar Mason, Benjamin Charlton
 		else {
-			PTitle = pTitle;
+			this.pTitle = pTitle;
 		}
 	}
 
 	public void addReview(WorkshopReview nReview) throws WorkshopPaperExcessReviewException {
 		boolean added = false;
-		for(int i = 0; i < PReviews.length; i++)
+		for(int i = 0; i < pReviews.length; i++)
 		{
-			if (!added && PReviews[i] == null) {
-				PReviews[i] = nReview;
+			if (!added && pReviews[i] == null) {
+				pReviews[i] = nReview;
 				added = true;
 			}
 		} // Changed if statements to for loop for easy scalability : Benjamin Charlton
@@ -57,10 +57,10 @@ public class WorkshopPaper {
 		float AvgScore = 0;
 		int numReviews = 0;
 
-		for(int i = 0; i < PReviews.length; i++)
+		for(int i = 0; i < pReviews.length; i++)
 		{
-			if (PReviews[i] != null) {
-				AvgScore += PReviews[i].getrScore();
+			if (pReviews[i] != null) {
+				AvgScore += pReviews[i].getrScore();
 				numReviews++;
 			}
 		} // Changed if statements to for loop for easy scalability : Benjamin Charlton
@@ -83,18 +83,18 @@ public class WorkshopPaper {
 			return "No reviews submitted yet.";
 		} // Added error checking for no reviews : Benjamin Charlton
 
-		myoutput = "Average Score = " + ROutputs[roundScore-1] + "\n\n"; //Changed ROutputs[roundScore] to ROutputs[roundScore-1] : Benjamin Charlton
-		for(int i = 0; i < PReviews.length; i++)
+		myoutput = "Average Score = " + rOutputs[roundScore-1] + "\n\n"; //Changed rOutputs[roundScore] to rOutputs[roundScore-1] : Benjamin Charlton
+		for(int i = 0; i < pReviews.length; i++)
 		{
-			if (PReviews[i] != null) {
-				myoutput += "Review " + (i+1) +":\n" + PReviews[i].toString() + "\n";
+			if (pReviews[i] != null) {
+				myoutput += "Review " + (i+1) +":\n" + pReviews[i].toString() + "\n";
 			}
 		} // Changed to for loop to allow for scalabilty and also added condtion to check if review has data : Benjamin Charlton
 		return myoutput;
 	}
 
-	public WorkshopReview[] getPReviews(){
-		return PReviews;
+	public WorkshopReview[] getpReviews(){
+		return pReviews;
 	}
 
 }
