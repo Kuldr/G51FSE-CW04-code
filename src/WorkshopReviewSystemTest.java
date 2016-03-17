@@ -24,7 +24,7 @@ public class WorkshopReviewSystemTest {
             " Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur," +
             " vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?";
 
-    //TODO: No errors should be expected or needed to be thrown by test methods
+    //TODO: Add set up and tear down to every test, look like 120
 
     @Before
     public void setUpStreams(){
@@ -131,8 +131,7 @@ public class WorkshopReviewSystemTest {
         System.setIn(in);
 
         WorkshopReviewSystem.main(new String[]{""});
-        //TODO; Error message needs fixing here
-        String output = optionText + "Command not recognised" + System.lineSeparator()
+        String output = optionText + "[Command not recognised]" + System.lineSeparator()
                 + optionText;
         assertEquals(output, outContent.toString());
     }
@@ -154,7 +153,6 @@ public class WorkshopReviewSystemTest {
         WorkshopReviewSystem.main(new String[]{""});
         float averageScore_1 = (float)9/3;
         float averageScore_2 = (float)4.0/3;
-        //TODO Hardcoded average score
         String output = optionText +
                 "1) Paper 1 is great - " + averageScore_1 + System.lineSeparator() +
                 "2) Paper 2 is my best work - " + averageScore_2 + System.lineSeparator() +
@@ -252,7 +250,6 @@ public class WorkshopReviewSystemTest {
 
         WorkshopReviewSystem.main(new String[]{""});
         String output = optionText + "What is the title of the paper?" + System.lineSeparator() +
-                //TODO: Review Error message
                 "[Error No Title, Paper not added]" + System.lineSeparator() +
                 optionText;
         assertEquals(output, outContent.toString() );
@@ -293,7 +290,6 @@ public class WorkshopReviewSystemTest {
         String output = optionText + "Which paper do you want to add a review to?" + System.lineSeparator() +
                 "What score do you give it?" + System.lineSeparator() +
                 "Please enter your review:" + System.lineSeparator() +
-                //TODO: Review Error
                 "[Error, no such Paper]" + System.lineSeparator() +
                 optionText;
         assertEquals(output, outContent.toString());
@@ -321,7 +317,6 @@ public class WorkshopReviewSystemTest {
         String output = optionText + "Which paper do you want to add a review to?" + System.lineSeparator() +
                 "What score do you give it?" + System.lineSeparator() +
                 "Please enter your review:" + System.lineSeparator() +
-                //TODO: Review Error
                 "[Error, Bad Score]" + System.lineSeparator() +
                 optionText;
         assertEquals(output, outContent.toString());
@@ -349,7 +344,6 @@ public class WorkshopReviewSystemTest {
         String output = optionText + "Which paper do you want to add a review to?" + System.lineSeparator() +
                 "What score do you give it?" + System.lineSeparator() +
                 "Please enter your review:" + System.lineSeparator() +
-                //TODO: Review Error
                 "[Error must enter review text]" + System.lineSeparator() +
                 optionText;
         assertEquals(output, outContent.toString());
@@ -400,7 +394,6 @@ public class WorkshopReviewSystemTest {
         System.setIn(in);
 
         WorkshopReviewSystem.main(new String[]{""});
-        //TODO: Review Error
         String output = optionText + "[There are no papers]" + System.lineSeparator() +
                 optionText;
         assertEquals(output, outContent.toString());
@@ -449,10 +442,7 @@ public class WorkshopReviewSystemTest {
         System.setIn(in);
 
         WorkshopReviewSystem.main(new String[]{""});
-        String output = optionText +
-                //TODO: Review Error
-                "[No paper with given ID]" + System.lineSeparator() +
-                optionText;
+        String output = optionText + "[No paper with given ID]" + System.lineSeparator() + optionText;
         assertEquals(output, outContent.toString());
 
         //Tear Down
@@ -473,10 +463,7 @@ public class WorkshopReviewSystemTest {
         System.setIn(in);
 
         WorkshopReviewSystem.main(new String[]{""});
-        String output = optionText +
-                //TODO: Review Error
-                "Command not recognised" + System.lineSeparator() +
-                optionText;
+        String output = optionText + "[Command not recognised]" + System.lineSeparator() + optionText;
         assertEquals(output, outContent.toString());
 
         //Tear Down
