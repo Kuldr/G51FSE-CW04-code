@@ -35,7 +35,7 @@ public class WorkshopReviewTest {
            Authored: Tim Cargan, Jon Dilks
          */
         workshopReview = new WorkshopReview();
-        assertEquals(VALID_MIN_SCORE, workshopReview.getrScore());
+        assertEquals(VALID_MIN_SCORE, workshopReview.getRScore());
     }
 
     @Test
@@ -46,8 +46,8 @@ public class WorkshopReviewTest {
             Authored: Tim Cargan, Jon Dilks
          */
         workshopReview = new WorkshopReview();
-        workshopReview.setrScore(VALID_MID_SCORE);
-        assertEquals(VALID_MID_SCORE, workshopReview.getrScore());
+        workshopReview.setRScore(VALID_MID_SCORE);
+        assertEquals(VALID_MID_SCORE, workshopReview.getRScore());
     }
 
     @Test(expected = WorkshopReviewInvalidScore.class)
@@ -58,21 +58,21 @@ public class WorkshopReviewTest {
             Authored: Tim Cargan, Jon Dilks
          */
         workshopReview = new WorkshopReview();
-        workshopReview.setrScore(VALID_MID_SCORE);
+        workshopReview.setRScore(VALID_MID_SCORE);
 
         //Negative Bound
-        workshopReview.setrScore(INVALID_LOW_SCORE);
-        assertNotEquals(INVALID_NEG_SCORE, workshopReview.getrScore());
+        workshopReview.setRScore(INVALID_LOW_SCORE);
+        assertNotEquals(INVALID_NEG_SCORE, workshopReview.getRScore());
 
         //Lower Bound
-        workshopReview.setrScore(INVALID_LOW_SCORE);
-        assertNotEquals(INVALID_LOW_SCORE, workshopReview.getrScore());
+        workshopReview.setRScore(INVALID_LOW_SCORE);
+        assertNotEquals(INVALID_LOW_SCORE, workshopReview.getRScore());
 
         //Upper Bound
-        workshopReview.setrScore(INVALID_HIGH_SCORE);
-        assertNotEquals(INVALID_HIGH_SCORE, workshopReview.getrScore());
+        workshopReview.setRScore(INVALID_HIGH_SCORE);
+        assertNotEquals(INVALID_HIGH_SCORE, workshopReview.getRScore());
 
-        assertEquals(VALID_MID_SCORE, workshopReview.getrScore());
+        assertEquals(VALID_MID_SCORE, workshopReview.getRScore());
     }
 
     @Test
@@ -83,12 +83,12 @@ public class WorkshopReviewTest {
          */
         WorkshopReview workshopReview = new WorkshopReview();
 
-        workshopReview.setrScore(VALID_MAX_SCORE);
-        assertEquals(VALID_MAX_SCORE, workshopReview.getrScore());
+        workshopReview.setRScore(VALID_MAX_SCORE);
+        assertEquals(VALID_MAX_SCORE, workshopReview.getRScore());
 
 
-        workshopReview.setrScore(VALID_MIN_SCORE);
-        assertEquals(VALID_MIN_SCORE, workshopReview.getrScore());
+        workshopReview.setRScore(VALID_MIN_SCORE);
+        assertEquals(VALID_MIN_SCORE, workshopReview.getRScore());
     }
 
     @Test
@@ -111,7 +111,7 @@ public class WorkshopReviewTest {
          */
         workshopReview = new WorkshopReview();
         assertNotNull(workshopReview);
-        assertEquals(VALID_MIN_SCORE, workshopReview.getrScore());
+        assertEquals(VALID_MIN_SCORE, workshopReview.getRScore());
     }
 
     @Test
@@ -122,7 +122,7 @@ public class WorkshopReviewTest {
             Authored: Tim Cargan, Jon Dilks
          */
         workshopReview = new WorkshopReview();
-        assertEquals("", workshopReview.getrReview());
+        assertEquals("", workshopReview.getRReview());
     }
     @Test
     public void  testWorkshopReviewConstructor53() throws Exception {
@@ -132,8 +132,8 @@ public class WorkshopReviewTest {
             Authored: Tim Cargan, Jon Dilks
          */
         workshopReview = new WorkshopReview(VALID_MID_SCORE, TEXT);
-        assertEquals(VALID_MID_SCORE, workshopReview.getrScore());
-        assertEquals(TEXT, workshopReview.getrReview());
+        assertEquals(VALID_MID_SCORE, workshopReview.getRScore());
+        assertEquals(TEXT, workshopReview.getRReview());
     }
 
     @Test(expected = WorkshopReviewInvalidScore.class)
@@ -159,7 +159,7 @@ public class WorkshopReviewTest {
         {
             String currentTestString = s.nextLine();
             WorkshopReview workshopReview = new WorkshopReview(VALID_MID_SCORE, currentTestString);
-            assertEquals(workshopReview.getrReview(), currentTestString);
+            assertEquals(workshopReview.getRReview(), currentTestString);
         }
     }
 
@@ -171,7 +171,7 @@ public class WorkshopReviewTest {
             Authored: Tim Cargan, Jon Dilks
          */
         workshopReview = new WorkshopReview();
-        assertEquals("", workshopReview.getrReview());
+        assertEquals("", workshopReview.getRReview());
     }
 
     @Test
@@ -182,7 +182,7 @@ public class WorkshopReviewTest {
             Authored: Tim Cargan, Jon Dilks
          */
         workshopReview = new WorkshopReview(VALID_MID_SCORE, TEXT);
-        assertEquals(TEXT, workshopReview.getrReview());
+        assertEquals(TEXT, workshopReview.getRReview());
     }
     @Test
     public void testGetRReview63() throws Exception {
@@ -192,7 +192,7 @@ public class WorkshopReviewTest {
             Authored: Tim Cargan, Jon Dilks
          */
         workshopReview = new WorkshopReview(VALID_MID_SCORE, TEXT_NONASCII);
-        assertEquals(TEXT_NONASCII, workshopReview.getrReview());
+        assertEquals(TEXT_NONASCII, workshopReview.getRReview());
     }
 
     @Test
@@ -203,8 +203,8 @@ public class WorkshopReviewTest {
             Authored: Tim Cargan, Jon Dilks
          */
         workshopReview = new WorkshopReview(VALID_MID_SCORE, TEXT);
-        workshopReview.setrReview("");
-        assertEquals("", workshopReview.getrReview());
+        workshopReview.setRReview("");
+        assertEquals("", workshopReview.getRReview());
     }
 
 
@@ -216,8 +216,8 @@ public class WorkshopReviewTest {
             Authored: Tim Cargan, Jon Dilks
          */
         workshopReview = new WorkshopReview();
-        workshopReview.setrReview(TEXT);
-        assertEquals(TEXT, workshopReview.getrReview());
+        workshopReview.setRReview(TEXT);
+        assertEquals(TEXT, workshopReview.getRReview());
     }
 
     @Test
@@ -228,8 +228,8 @@ public class WorkshopReviewTest {
             Authored: Tim Cargan, Jon Dilks
          */
         workshopReview = new WorkshopReview();
-        workshopReview.setrReview(TEXT_NONASCII);
-        assertEquals(TEXT_NONASCII, workshopReview.getrReview());
+        workshopReview.setRReview(TEXT_NONASCII);
+        assertEquals(TEXT_NONASCII, workshopReview.getRReview());
     }
 
     @Test

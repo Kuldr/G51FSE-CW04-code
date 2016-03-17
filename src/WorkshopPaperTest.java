@@ -18,9 +18,9 @@ public class WorkshopPaperTest {
         WorkshopPaper workshopPaper = new WorkshopPaper();
         assertNotNull(workshopPaper);
 
-        assertEquals("New Paper", workshopPaper.getpTitle());
-        assertEquals(3, workshopPaper.getpReviews().length);
-        assertArrayEquals(new WorkshopReview[3], workshopPaper.getpReviews());
+        assertEquals("New Paper", workshopPaper.getPTitle());
+        assertEquals(3, workshopPaper.getPReviews().length);
+        assertArrayEquals(new WorkshopReview[3], workshopPaper.getPReviews());
     }
 
     @Test
@@ -33,9 +33,9 @@ public class WorkshopPaperTest {
         WorkshopPaper workshopPaper = new WorkshopPaper("Test Paper");
         assertNotNull(workshopPaper);
 
-        assertEquals("Test Paper", workshopPaper.getpTitle());
-        assertEquals(3, workshopPaper.getpReviews().length);
-        assertArrayEquals(new WorkshopReview[3], workshopPaper.getpReviews());
+        assertEquals("Test Paper", workshopPaper.getPTitle());
+        assertEquals(3, workshopPaper.getPReviews().length);
+        assertArrayEquals(new WorkshopReview[3], workshopPaper.getPReviews());
     }
 
     @Test(expected = WorkshopPaperEmptyTitleException.class)
@@ -52,7 +52,7 @@ public class WorkshopPaperTest {
             Authored: Oscar Mason, Benjamin Charlton
          */
         WorkshopPaper workshopPaper = new WorkshopPaper("Title Goes Here");
-        assertEquals("Title Goes Here", workshopPaper.getpTitle());
+        assertEquals("Title Goes Here", workshopPaper.getPTitle());
     }
 
     @Test
@@ -61,8 +61,8 @@ public class WorkshopPaperTest {
             Authored: Oscar Mason, Benjamin Charlton
          */
         WorkshopPaper workshopPaper = new WorkshopPaper();
-        workshopPaper.setpTitle("New Title");
-        assertEquals("New Title", workshopPaper.getpTitle());
+        workshopPaper.setPTitle("New Title");
+        assertEquals("New Title", workshopPaper.getPTitle());
 
     }
 
@@ -73,8 +73,8 @@ public class WorkshopPaperTest {
          */
         final String exampleTitle = "Example Paper";
         WorkshopPaper workshopPaper = new WorkshopPaper(exampleTitle);
-        workshopPaper.setpTitle("");
-        assertEquals(workshopPaper.getpTitle(), exampleTitle);
+        workshopPaper.setPTitle("");
+        assertEquals(workshopPaper.getPTitle(), exampleTitle);
     }
 
 
@@ -89,10 +89,10 @@ public class WorkshopPaperTest {
         WorkshopReview workshopReview = new WorkshopReview(3, testText);
         workshopPaper.addReview(workshopReview);
 
-        WorkshopReview[] workshopReviews = workshopPaper.getpReviews();
+        WorkshopReview[] workshopReviews = workshopPaper.getPReviews();
         assertEquals(workshopReviews[0], workshopReview);
 
-        assertEquals(workshopReview.getrReview(), testText);
+        assertEquals(workshopReview.getRReview(), testText);
     }
 
     @Test(expected = WorkshopPaperExcessReviewException.class)
@@ -101,7 +101,7 @@ public class WorkshopPaperTest {
             Authored: Oscar Mason, Jonathan Dilks
          */
         WorkshopPaper workshopPaper = new WorkshopPaper();
-        for (int i = 0; i<workshopPaper.getpReviews().length+1; i++){
+        for (int i = 0; i<workshopPaper.getPReviews().length+1; i++){
             workshopPaper.addReview(new WorkshopReview(3, "Test"));
         }
     }

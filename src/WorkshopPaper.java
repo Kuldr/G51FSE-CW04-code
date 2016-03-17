@@ -26,11 +26,11 @@ public class WorkshopPaper {
 		} // Changed to for loop for easy scalability : Benjamin Charlton
 	}
 
-	public String getpTitle() {
+	public String getPTitle() {
 		return pTitle;
 	}
 
-	public void setpTitle(String pTitle) throws WorkshopPaperEmptyTitleException {
+	public void setPTitle(String pTitle) throws WorkshopPaperEmptyTitleException {
 		if(pTitle.equals("")){
 			throw new WorkshopPaperEmptyTitleException();
 		} // Added in the error checking : Oscar Mason, Benjamin Charlton
@@ -60,7 +60,7 @@ public class WorkshopPaper {
 		for(int i = 0; i < pReviews.length; i++)
 		{
 			if (pReviews[i] != null) {
-				AvgScore += pReviews[i].getrScore();
+				AvgScore += pReviews[i].getRScore();
 				numReviews++;
 			}
 		} // Changed if statements to for loop for easy scalability : Benjamin Charlton
@@ -74,8 +74,8 @@ public class WorkshopPaper {
 	}
 
 	public String toString(){
-		String myoutput = "";
-		int roundScore = 0;
+		StringBuilder myOutput = new StringBuilder(); //Change to StringBuilder for efficiency and Java convention : Jonathan Dilks
+		int roundScore;
 		try {
 			roundScore = Math.round(getAverageScore()); //Changed Math.round(getAverageScore()) to stored to allow for error checking : Benjamin Charlton
 		}
@@ -83,18 +83,17 @@ public class WorkshopPaper {
 			return "No reviews submitted yet.";
 		} // Added error checking for no reviews : Benjamin Charlton
 
-		myoutput = "Average Score = " + rOutputs[roundScore-1] + "\n\n"; //Changed rOutputs[roundScore] to rOutputs[roundScore-1] : Benjamin Charlton
+		myOutput.append("Average Score = " + rOutputs[roundScore-1] + "\n\n"); //Changed rOutputs[roundScore] to rOutputs[roundScore-1] : Benjamin Charlton
 		for(int i = 0; i < pReviews.length; i++)
 		{
 			if (pReviews[i] != null) {
-				myoutput += "Review " + (i+1) +":\n" + pReviews[i].toString() + "\n";
+				myOutput.append("Review " + (i+1) +":\n" + pReviews[i].toString() + "\n");
 			}
-		} // Changed to for loop to allow for scalabilty and also added condtion to check if review has data : Benjamin Charlton
-		return myoutput;
+		} // Changed to for loop to allow for scalability and also added condition to check if review has data : Benjamin Charlton
+		return myOutput.toString();
 	}
 
-	public WorkshopReview[] getpReviews(){
+	public WorkshopReview[] getPReviews(){
 		return pReviews;
 	}
-
 }

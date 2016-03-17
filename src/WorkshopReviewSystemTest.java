@@ -1,4 +1,3 @@
-import Exceptions.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -27,7 +26,7 @@ public class WorkshopReviewSystemTest {
     @Before
     public void setUpStreams(){
         System.setOut(new PrintStream(outContent));
-        WorkshopReviewSystem.add_test_data();
+        WorkshopReviewSystem.addTestData();
 
     }
 
@@ -43,8 +42,8 @@ public class WorkshopReviewSystemTest {
          */
 
         //Set up
-        WorkshopReviewSystem.remove_test_data();
-        WorkshopReviewSystem.add_test_data();
+        WorkshopReviewSystem.removeTestData();
+        WorkshopReviewSystem.addTestData();
 
         String input = "O";
         InputStream in = new ByteArrayInputStream(input.getBytes());
@@ -60,7 +59,7 @@ public class WorkshopReviewSystemTest {
         assertEquals(output, outContent.toString());
 
         //TearDown
-        WorkshopReviewSystem.remove_test_data();
+        WorkshopReviewSystem.removeTestData();
     }
 
     @Test
@@ -70,7 +69,7 @@ public class WorkshopReviewSystemTest {
          */
 
         //Set up
-        WorkshopReviewSystem.add_test_data();
+        WorkshopReviewSystem.addTestData();
 
         String input = "P\nGood paper\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());
@@ -83,7 +82,7 @@ public class WorkshopReviewSystemTest {
         assertEquals(output, outContent.toString() );
 
         //TearDown
-        WorkshopReviewSystem.remove_test_data();
+        WorkshopReviewSystem.removeTestData();
     }
 
     @Test
@@ -93,8 +92,8 @@ public class WorkshopReviewSystemTest {
          */
 
         //Set up
-        WorkshopReviewSystem.remove_test_data();
-        WorkshopReviewSystem.add_unreviwed_paper_3();
+        WorkshopReviewSystem.removeTestData();
+        WorkshopReviewSystem.addUnreviwedPaper3();
 
         String input = "R\n3\n5\nGood paper\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());
@@ -109,7 +108,7 @@ public class WorkshopReviewSystemTest {
         assertEquals(output, outContent.toString());
 
         //TearDown
-        WorkshopReviewSystem.remove_test_data();
+        WorkshopReviewSystem.removeTestData();
     }
 
     @Test
@@ -119,7 +118,7 @@ public class WorkshopReviewSystemTest {
          */
 
         //Set up
-        WorkshopReviewSystem.add_test_data();
+        WorkshopReviewSystem.addTestData();
 
         String input = "X\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());
@@ -130,7 +129,7 @@ public class WorkshopReviewSystemTest {
         assertEquals(output, outContent.toString());
 
         //TearDown
-        WorkshopReviewSystem.remove_test_data();
+        WorkshopReviewSystem.removeTestData();
     }
     
     @Test
@@ -140,7 +139,7 @@ public class WorkshopReviewSystemTest {
          */
 
         //Set up
-        WorkshopReviewSystem.add_test_data();
+        WorkshopReviewSystem.addTestData();
 
         String input = "Unknown\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());
@@ -152,7 +151,7 @@ public class WorkshopReviewSystemTest {
         assertEquals(output, outContent.toString());
 
         //TearDown
-        WorkshopReviewSystem.remove_test_data();
+        WorkshopReviewSystem.removeTestData();
     }
 
 
@@ -163,8 +162,8 @@ public class WorkshopReviewSystemTest {
          */
 
         //Set up
-        WorkshopReviewSystem.remove_test_data();
-        WorkshopReviewSystem.add_test_data();
+        WorkshopReviewSystem.removeTestData();
+        WorkshopReviewSystem.addTestData();
 
         String input = "o";
         InputStream in = new ByteArrayInputStream(input.getBytes());
@@ -180,7 +179,7 @@ public class WorkshopReviewSystemTest {
         assertEquals(output, outContent.toString());
 
         //TearDown
-        WorkshopReviewSystem.remove_test_data();
+        WorkshopReviewSystem.removeTestData();
     }
 
     @Test
@@ -190,7 +189,7 @@ public class WorkshopReviewSystemTest {
          */
 
         //Set up
-        WorkshopReviewSystem.add_test_data();
+        WorkshopReviewSystem.addTestData();
 
         String input = "p\nGood paper\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());
@@ -203,7 +202,7 @@ public class WorkshopReviewSystemTest {
         assertEquals(output, outContent.toString() );
 
         //TearDown
-        WorkshopReviewSystem.remove_test_data();
+        WorkshopReviewSystem.removeTestData();
     }
 
     @Test
@@ -213,8 +212,8 @@ public class WorkshopReviewSystemTest {
          */
 
         //Set up
-        WorkshopReviewSystem.remove_test_data();
-        WorkshopReviewSystem.add_unreviwed_paper_3();
+        WorkshopReviewSystem.removeTestData();
+        WorkshopReviewSystem.addUnreviwedPaper3();
 
         String input = "r\n3\n5\nGood paper\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());
@@ -229,7 +228,7 @@ public class WorkshopReviewSystemTest {
         assertEquals(output, outContent.toString());
 
         //TearDown
-        WorkshopReviewSystem.remove_test_data();
+        WorkshopReviewSystem.removeTestData();
     }
 
     @Test
@@ -239,7 +238,7 @@ public class WorkshopReviewSystemTest {
          */
 
         //Set up
-        WorkshopReviewSystem.add_test_data();
+        WorkshopReviewSystem.addTestData();
 
         String input = "x\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());
@@ -250,7 +249,7 @@ public class WorkshopReviewSystemTest {
         assertEquals(output, outContent.toString());
 
         //TearDown
-        WorkshopReviewSystem.remove_test_data();
+        WorkshopReviewSystem.removeTestData();
     }
 
     @Test
@@ -260,7 +259,7 @@ public class WorkshopReviewSystemTest {
          */
 
         //Set up
-        WorkshopReviewSystem.add_test_data();
+        WorkshopReviewSystem.addTestData();
 
         String input = "P\n\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());
@@ -273,7 +272,7 @@ public class WorkshopReviewSystemTest {
         assertEquals(output, outContent.toString() );
 
         //TearDown
-        WorkshopReviewSystem.remove_test_data();
+        WorkshopReviewSystem.removeTestData();
     }
     @Test
     public void workshopPaperSystemMain109() {
@@ -282,7 +281,7 @@ public class WorkshopReviewSystemTest {
          */
 
         //Set up
-        WorkshopReviewSystem.add_test_data();
+        WorkshopReviewSystem.addTestData();
 
         String input = "P\n" + TEXT_NONASCII + "\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());
@@ -295,7 +294,7 @@ public class WorkshopReviewSystemTest {
         assertEquals(output, outContent.toString() );
 
         //TearDown
-        WorkshopReviewSystem.remove_test_data();
+        WorkshopReviewSystem.removeTestData();
     }
 
 
@@ -306,7 +305,7 @@ public class WorkshopReviewSystemTest {
          */
 
         //Set up
-        WorkshopReviewSystem.add_test_data();
+        WorkshopReviewSystem.addTestData();
 
         String input = "R\n5\n3\nTest\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());
@@ -321,7 +320,7 @@ public class WorkshopReviewSystemTest {
         assertEquals(output, outContent.toString());
 
         //TearDown
-        WorkshopReviewSystem.remove_test_data();
+        WorkshopReviewSystem.removeTestData();
     }
 
     @Test
@@ -331,7 +330,7 @@ public class WorkshopReviewSystemTest {
          */
 
         //Set up
-        WorkshopReviewSystem.add_unreviwed_paper_3();
+        WorkshopReviewSystem.addUnreviwedPaper3();
 
         String input = "R\n3\n0\nReview\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());
@@ -346,7 +345,7 @@ public class WorkshopReviewSystemTest {
         assertEquals(output, outContent.toString());
 
         //TearDown
-        WorkshopReviewSystem.remove_test_data();
+        WorkshopReviewSystem.removeTestData();
     }
 
     @Test
@@ -356,7 +355,7 @@ public class WorkshopReviewSystemTest {
          */
 
         //Set up
-        WorkshopReviewSystem.add_unreviwed_paper_3();
+        WorkshopReviewSystem.addUnreviwedPaper3();
 
         String input = "R\n3\n3\n\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());
@@ -371,7 +370,7 @@ public class WorkshopReviewSystemTest {
         assertEquals(output, outContent.toString());
 
         //TearDown
-        WorkshopReviewSystem.remove_test_data();
+        WorkshopReviewSystem.removeTestData();
     }
 
     @Test
@@ -381,8 +380,8 @@ public class WorkshopReviewSystemTest {
          */
 
         //Set up
-        WorkshopReviewSystem.remove_test_data();
-        WorkshopReviewSystem.add_unreviwed_paper_3();
+        WorkshopReviewSystem.removeTestData();
+        WorkshopReviewSystem.addUnreviwedPaper3();
 
         String input = "R\n3\n3\n" + TEXT_NONASCII + "\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());
@@ -397,7 +396,7 @@ public class WorkshopReviewSystemTest {
         assertEquals(output, outContent.toString());
 
         //TearDown
-        WorkshopReviewSystem.remove_test_data();
+        WorkshopReviewSystem.removeTestData();
     }
 
     @Test
@@ -407,7 +406,7 @@ public class WorkshopReviewSystemTest {
          */
 
         //Set up
-        WorkshopReviewSystem.add_test_data();
+        WorkshopReviewSystem.addTestData();
 
         String input = "R\n1\n3\n" + TEXT_LONG + "\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());
@@ -422,7 +421,7 @@ public class WorkshopReviewSystemTest {
         assertEquals(output, outContent.toString());
 
         //TearDown
-        WorkshopReviewSystem.remove_test_data();
+        WorkshopReviewSystem.removeTestData();
     }
 
     @Test
@@ -432,7 +431,7 @@ public class WorkshopReviewSystemTest {
          */
 
         //SetUp
-        WorkshopReviewSystem.remove_test_data();
+        WorkshopReviewSystem.removeTestData();
 
         String input = "O\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());
@@ -444,7 +443,7 @@ public class WorkshopReviewSystemTest {
         assertEquals(output, outContent.toString());
 
         //TearDown
-        WorkshopReviewSystem.remove_test_data();
+        WorkshopReviewSystem.removeTestData();
     }
 
     @Test
@@ -454,7 +453,7 @@ public class WorkshopReviewSystemTest {
          */
 
         //SetUp
-        WorkshopReviewSystem.remove_test_data();
+        WorkshopReviewSystem.removeTestData();
 
         String input = "P\nTest\n1\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());
@@ -469,7 +468,7 @@ public class WorkshopReviewSystemTest {
         assertEquals(output, outContent.toString());
 
         //TearDown
-        WorkshopReviewSystem.remove_test_data();
+        WorkshopReviewSystem.removeTestData();
     }
 
     @Test
@@ -479,7 +478,7 @@ public class WorkshopReviewSystemTest {
          */
 
         //SetUp
-        WorkshopReviewSystem.remove_test_data();
+        WorkshopReviewSystem.removeTestData();
 
         String input = "51\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());
@@ -490,7 +489,7 @@ public class WorkshopReviewSystemTest {
         assertEquals(output, outContent.toString());
 
         //TearDown
-        WorkshopReviewSystem.remove_test_data();
+        WorkshopReviewSystem.removeTestData();
     }
 
     @Test
@@ -500,7 +499,7 @@ public class WorkshopReviewSystemTest {
          */
 
         //SetUp
-        WorkshopReviewSystem.remove_test_data();
+        WorkshopReviewSystem.removeTestData();
 
         String input = "-51\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());
@@ -511,8 +510,6 @@ public class WorkshopReviewSystemTest {
         assertEquals(output, outContent.toString());
 
         //TearDown
-        WorkshopReviewSystem.remove_test_data();
+        WorkshopReviewSystem.removeTestData();
     }
-
-
 }

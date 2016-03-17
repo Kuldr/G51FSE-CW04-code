@@ -45,7 +45,7 @@ public class WorkshopReviewSystem {
 		}
 		in.close();
 	}
-	
+
 	private static void AddPaper(Scanner in) {
 		System.out.println("What is the title of the paper?");
 		//in.nextLine(); // - Bug Fix: 135; Tim Cargan, Oscar Mason
@@ -59,7 +59,7 @@ public class WorkshopReviewSystem {
 		}
 		System.out.println("[Paper added]");
 	}
-	
+
 	private static void AddReview(Scanner in) {
 		System.out.println("Which paper do you want to add a review to?");
 		int x = in.nextInt();
@@ -96,7 +96,7 @@ public class WorkshopReviewSystem {
 		}
 		System.out.println("[Review added to Paper " + x + "]");
 	}
-	
+
 	private static void PrintPaperOverview(){
 		if (allPapers.size() == 0){
 			System.out.println("[There are no papers]");// Bug Fix 127: Prints error message for the user: Tim Cargan, Oscar Mason
@@ -104,13 +104,13 @@ public class WorkshopReviewSystem {
 		for (int x = 0; x < allPapers.size(); x++) {
 			WorkshopPaper wp = allPapers.get(x);
 			try{
-				System.out.println((x+1) + ") " + wp.getpTitle()+ " - " + wp.getAverageScore());
+				System.out.println((x+1) + ") " + wp.getPTitle()+ " - " + wp.getAverageScore());
 			}catch (WorkshopPaperNoReviewsYetException e){
 
 			}
 		}
 	}
-	
+
 	private static void PrintAPaper(int paperID) {
 		//Bug Fix: 131 Prints a nice error message for the user
 		try {
@@ -124,9 +124,9 @@ public class WorkshopReviewSystem {
 
 	//Test code
 	//Bug Fix: 132; Moved test code out of main Tim Cargan, Oscar Mason
-	public static void add_test_data() {
+	public static void addTestData() {
 		try {
-			//Test code, shouldn't not be in main
+			//Test code
 			WorkshopPaper p1 = new WorkshopPaper("Paper 1 is great");
 			p1.addReview(new WorkshopReview(4, "This paper is pretty good."));
 			p1.addReview(new WorkshopReview(3, "This paper is good for the workshop."));
@@ -140,17 +140,14 @@ public class WorkshopReviewSystem {
 			p2.addReview(new WorkshopReview(1, "So painful to read."));
 
 			allPapers.add(p2);
-
-		}catch (Exception e){}
-		//PrintPaperOverview();
-		//PrintAPaper(0);
-		//PrintAPaper(1);
+		} catch(Exception e){}
 	}
-	public static void remove_test_data(){
+
+	public static void removeTestData(){
 		allPapers.clear();
 	}
 
-	public static void add_unreviwed_paper_3() {
+	public static void addUnreviwedPaper3() {
 		try {
 			//Test code, shouldn't not be in main:
 			WorkshopPaper p1 = new WorkshopPaper("Paper 1 is great");
