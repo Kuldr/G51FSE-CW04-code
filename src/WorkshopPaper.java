@@ -31,7 +31,7 @@ public class WorkshopPaper {
 	}
 
 	public void setPTitle(String pTitle) throws WorkshopPaperEmptyTitleException {
-		if(pTitle == ""){
+		if(pTitle.equals("")){
 			throw new WorkshopPaperEmptyTitleException();
 		} // Added in the error checking : Oscar Mason, Benjamin Charlton
 		else {
