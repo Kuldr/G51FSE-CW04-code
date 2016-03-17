@@ -2,7 +2,6 @@ import Exceptions.WorkshopPaperEmptyTitleException;
 import Exceptions.WorkshopPaperExcessReviewException;
 import Exceptions.WorkshopPaperNoReviewsYetException;
 import Exceptions.WorkshopReviewInvalidScore;
-import org.junit.Assert;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
