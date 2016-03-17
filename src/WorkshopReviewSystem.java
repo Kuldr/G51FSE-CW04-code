@@ -34,7 +34,7 @@ public class WorkshopReviewSystem {
 					}catch (Exception e){}
 
 					if (isCommandUnknow){
-						System.out.println("Command not recognised");
+						System.out.println("[Command not recognised]");
 					}
 
 				}
