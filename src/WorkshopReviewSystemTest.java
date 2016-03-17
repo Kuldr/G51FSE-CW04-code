@@ -24,8 +24,6 @@ public class WorkshopReviewSystemTest {
             " Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur," +
             " vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?";
 
-    //TODO: Add set up and tear down to every test, look like 120
-
     @Before
     public void setUpStreams(){
         System.setOut(new PrintStream(outContent));
